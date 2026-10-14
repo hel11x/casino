@@ -266,23 +266,61 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .bj-msg{font-size:15px;font-weight:600;min-height:22px}
 
 /* slots */
-.slot-machine{position:relative;padding:26px;border-radius:26px;background:linear-gradient(180deg,#2a1f0d,#140f06);box-shadow:inset 0 0 0 2px rgba(217,178,95,.5),inset 0 0 60px rgba(0,0,0,.6),0 40px 80px rgba(0,0,0,.5)}
-.slot-top{text-align:center;margin-bottom:18px}
-.slot-top h2{font-family:'Playfair Display',serif;font-size:28px;letter-spacing:.12em}
-.slot-lights{display:flex;justify-content:center;gap:10px;margin-top:10px}
-.slot-lights i{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:blink 1.2s infinite}
-.slot-lights i:nth-child(2n){animation-delay:.6s}
-@keyframes blink{50%{opacity:.25}}
-.sl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px;border-radius:18px;background:#07080b;box-shadow:inset 0 10px 30px rgba(0,0,0,.9),0 0 0 3px #3a2c12}
-.sc{aspect-ratio:1.45;border-radius:12px;background:linear-gradient(180deg,#f7f3ea,#d9d3c5);display:grid;place-items:center;font-size:clamp(34px,6vw,58px);box-shadow:inset 0 -10px 20px rgba(0,0,0,.18),inset 0 8px 14px rgba(255,255,255,.7);transition:box-shadow .2s}
-.sc.land{animation:land .25s ease}
-@keyframes land{0%{transform:translateY(-10px)}60%{transform:translateY(4px)}100%{transform:none}}
-.sc.win{box-shadow:0 0 0 3px var(--gold2),0 0 28px rgba(246,221,148,.7),inset 0 -10px 20px rgba(0,0,0,.18);animation:glow 1s ease infinite alternate}
-@keyframes glow{to{filter:brightness(1.12)}}
-.sl-result{text-align:center;margin-top:16px;font-size:18px;font-weight:700;min-height:26px}
-.pay-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
-.pay-row:last-child{border:0}
-.pay-row .sy{font-size:22px;letter-spacing:4px}
+.cab{--h:118px;position:relative;max-width:920px;margin:0 auto;padding:20px 20px 24px;border-radius:34px 34px 24px 24px;background:linear-gradient(180deg,#2e2010,#140d05 38%,#0c0805);box-shadow:inset 0 0 0 2px #6b4f1a,inset 0 0 0 7px #120c04,inset 0 0 0 9px rgba(217,178,95,.5),0 60px 120px rgba(0,0,0,.65),0 0 140px rgba(217,178,95,.08)}
+.marquee{position:relative;text-align:center;padding:30px 20px 26px;border-radius:24px;background:radial-gradient(ellipse at 50% -20%,#7a3fc0,#2a0f4d 55%,#12061f);box-shadow:inset 0 0 0 2px rgba(246,221,148,.65),inset 0 0 50px rgba(0,0,0,.55);overflow:hidden}
+.marquee::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 130%,rgba(255,255,255,.05) 0 5deg,transparent 5deg 10deg);pointer-events:none}
+.bulbs{position:absolute;left:18px;right:18px;display:flex;justify-content:space-between}
+.bulbs.top{top:10px}.bulbs.bot{bottom:10px}
+.bulbs i{width:7px;height:7px;border-radius:50%;background:#ffe7a3;box-shadow:0 0 8px #ffd76a,0 0 2px #fff;animation:chase 1s steps(1) infinite}
+.bulbs i:nth-child(2n){animation-delay:.5s}
+@keyframes chase{50%{background:#5a4420;box-shadow:none}}
+.mq-sub{position:relative;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:rgba(246,221,148,.75)}
+.marquee h2{position:relative;font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(26px,5vw,50px);letter-spacing:.12em;margin:6px 0 12px;background:linear-gradient(180deg,#fffbe8,#f6dd94 40%,#c9962f 62%,#fff1bd);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #5a3d0c) drop-shadow(0 0 18px rgba(246,221,148,.35))}
+.jackpot{position:relative;display:inline-flex;gap:14px;align-items:center;padding:9px 20px;border-radius:12px;background:#060408;box-shadow:inset 0 0 0 1px rgba(246,221,148,.45),0 0 24px rgba(0,0,0,.6)}
+.jackpot span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.jackpot b{font-size:24px;font-variant-numeric:tabular-nums;color:#ffd76a;text-shadow:0 0 14px rgba(255,215,106,.65);letter-spacing:.04em}
+.reels-frame{position:relative;display:flex;gap:8px;align-items:stretch;margin-top:18px;padding:14px 10px;border-radius:20px;background:linear-gradient(180deg,#3d2c11,#1b1307);box-shadow:inset 0 0 0 2px rgba(217,178,95,.6),inset 0 10px 24px rgba(0,0,0,.7)}
+.ltags{display:flex;flex-direction:column;justify-content:space-around;gap:4px}
+.ltags span{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#160f03;background:var(--lc);box-shadow:inset 0 -2px 0 rgba(0,0,0,.3),0 0 0 2px #1b1307;cursor:default}
+.reels{position:relative;flex:1;min-width:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;height:calc(var(--h)*3);border-radius:12px;background:#050403}
+.reel{position:relative;overflow:hidden;border-radius:10px;background:linear-gradient(180deg,#cfc7b4,#f6f1e6 16%,#fffdf8 50%,#f6f1e6 84%,#cfc7b4)}
+.reel::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 18px 22px -12px rgba(0,0,0,.55),inset 0 -18px 22px -12px rgba(0,0,0,.55),inset 0 0 0 1px rgba(0,0,0,.25)}
+.strip{position:absolute;left:0;right:0;top:0;will-change:transform}
+.sym{height:var(--h);display:grid;place-items:center;padding:12%}
+.sym svg{width:100%;height:100%;filter:drop-shadow(0 3px 3px rgba(0,0,0,.28));overflow:visible}
+.reel.spin .strip{filter:blur(2.5px)}
+.reel.stop{animation:rstop .32s ease}
+@keyframes rstop{35%{transform:translateY(5px)}}
+.sym.hit svg{animation:hit .7s ease-in-out infinite alternate}
+@keyframes hit{to{transform:scale(1.1);filter:drop-shadow(0 0 10px rgba(255,200,80,.95))}}
+.wlines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+.wlines polyline{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 5px currentColor);animation:dash .9s ease}
+@keyframes dash{from{stroke-dasharray:1400;stroke-dashoffset:1400}to{stroke-dasharray:1400;stroke-dashoffset:0}}
+.bigwin{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(circle,rgba(30,10,45,.82),rgba(0,0,0,.45));border-radius:12px;animation:tin .3s ease}
+.bigwin span{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(30px,6vw,64px);letter-spacing:.1em;background:linear-gradient(180deg,#fffbe8,#f6dd94,#c9962f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 20px rgba(246,221,148,.6));animation:pulseT .6s ease infinite alternate}
+.bigwin b{font-size:clamp(22px,4vw,38px);color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 0 16px rgba(255,215,106,.8)}
+@keyframes pulseT{to{transform:scale(1.06)}}
+.cab-panel{display:grid;grid-template-columns:minmax(0,1.3fr) auto minmax(0,1fr);gap:18px;align-items:center;margin-top:18px;padding:16px;border-radius:18px;background:linear-gradient(180deg,#120d07,#080604);box-shadow:inset 0 0 0 1px rgba(217,178,95,.3)}
+.lcds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.lcd{padding:10px 12px;border-radius:10px;background:#030202;box-shadow:inset 0 0 0 1px rgba(246,221,148,.18),inset 0 4px 10px rgba(0,0,0,.8);min-width:0}
+.lcd span{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a7a55}
+.lcd b{display:block;font-size:16px;color:#ffd76a;font-variant-numeric:tabular-nums;text-shadow:0 0 10px rgba(255,215,106,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcd.win b{color:#5dffb0;text-shadow:0 0 10px rgba(93,255,176,.5)}
+.spin-btn{width:104px;height:104px;border-radius:50%;font-weight:900;font-size:17px;letter-spacing:.12em;color:#2b1d06;background:radial-gradient(circle at 35% 28%,#fff6d3,#f0c860 38%,#b8862b 70%,#7a561a);box-shadow:0 0 0 5px #1a1206,0 0 0 7px rgba(246,221,148,.65),0 14px 30px rgba(0,0,0,.7),0 0 46px rgba(217,178,95,.4),inset 0 -6px 12px rgba(0,0,0,.25);transition:transform .1s,filter .15s}
+.spin-btn:hover{filter:brightness(1.08)}.spin-btn:active{transform:scale(.96)}
+.spin-btn:disabled{filter:grayscale(.5) brightness(.75);cursor:not-allowed}
+.cab-ctl{display:flex;flex-direction:column;gap:10px}
+.lbsel{display:flex;align-items:center;gap:8px;padding:6px;border-radius:12px;background:#030202;box-shadow:inset 0 0 0 1px rgba(246,221,148,.18)}
+.lbsel button{width:36px;height:36px;border-radius:9px;background:linear-gradient(180deg,#3a2a10,#1c1408);color:var(--gold2);font-size:18px;font-weight:800;box-shadow:inset 0 0 0 1px rgba(217,178,95,.4)}
+.lbsel div{flex:1;text-align:center}.lbsel span{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a7a55}.lbsel b{color:#ffd76a;font-size:15px}
+.paygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.paycard{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:linear-gradient(180deg,var(--panel),#0e121a);border:1px solid var(--line)}
+.paycard .pi{width:64px;height:64px;flex:none;border-radius:12px;padding:8px;background:linear-gradient(180deg,#fbf7ee,#d6cdb8);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.paycard .pi svg{width:100%;height:100%}
+.paycard>div:last-child{flex:1}
+.paycard .pr{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:3px}
+.paycard .pr b{color:var(--text)}
+@media(max-width:760px){.cab{--h:58px;padding:12px;border-radius:24px}.cab-panel{grid-template-columns:1fr;justify-items:center}.lcds,.cab-ctl{width:100%}.ltags span{width:18px;height:18px;font-size:9px}.reels{gap:4px}.reels-frame{padding:10px 6px;gap:4px}.marquee{padding:26px 12px 22px}.jackpot b{font-size:18px}}
 
 /* mines */
 .mines-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:18px}
@@ -390,6 +428,47 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .chips-f button.on{border-color:var(--gold);color:var(--gold2);background:rgba(217,178,95,.08)}
 .amt-p{color:var(--green);font-weight:700}.amt-n{color:#ff7a80;font-weight:700}
 
+/* multiplayer + popups */
+.mp-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px}
+.codebox{display:flex;flex-direction:column;padding:6px 16px;border-radius:12px;background:var(--panel);border:1px solid rgba(217,178,95,.35)}
+.codebox span{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.codebox b{font-size:20px;letter-spacing:.24em;color:var(--gold2)}
+.code-field{text-transform:uppercase;letter-spacing:.35em;font-weight:800;font-size:22px;text-align:center}
+.sit-btn{margin-top:40px;width:86px;height:86px;border-radius:50%;border:2px dashed rgba(246,221,148,.55);color:var(--gold2);font-size:12px;font-weight:700;background:rgba(0,0,0,.25);transition:background .15s}
+.sit-btn:hover{background:rgba(217,178,95,.15)}
+.seat .tmr{font-size:11px;font-weight:800;color:var(--gold2)}
+.seat .off{font-size:10px;color:#ff8a8e;font-weight:700}
+.pl-row{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)}
+.pl-row:last-child{border:0}
+.pl-row>div:nth-child(2){flex:1;min-width:0}
+.pl-row b{display:block;font-size:13px}.pl-row small{color:var(--mut);font-size:11.5px}
+.sysmsg{text-align:center;font-size:11.5px;color:var(--mut);padding:2px 0}
+.spinner{width:44px;height:44px;border-radius:50%;border:3px solid rgba(217,178,95,.2);border-top-color:var(--gold);animation:spin 1s linear infinite;margin:0 auto 18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.step{padding:16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.step b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(217,178,95,.15);color:var(--gold2);margin-bottom:10px}
+.step p{color:var(--mut);font-size:13px;line-height:1.5}
+.modal{position:relative}
+.mx{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.35);font-size:20px;line-height:1;color:var(--mut);z-index:2}
+.mx:hover{color:#fff}
+.modal.promo-modal{max-width:520px;padding:0;overflow:hidden;border-color:rgba(217,178,95,.3)}
+.promo-art{padding:34px 30px 26px;background:radial-gradient(400px 200px at 85% 0%,rgba(217,178,95,.35),transparent 70%),radial-gradient(300px 200px at 0% 100%,rgba(14,90,60,.6),transparent 70%),linear-gradient(135deg,#1a1f2c,#0b0e15);border-bottom:1px solid rgba(217,178,95,.25)}
+.promo-art h2{font-family:'Playfair Display',serif;font-size:32px;line-height:1.1;margin:0}
+.promo-art p{color:#b9bdc9;margin-top:10px;line-height:1.55}
+.promo-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:12px}
+.promo-row{display:flex;gap:14px;align-items:center;padding:12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line)}
+.promo-row svg{width:22px;height:22px;color:var(--gold2);flex:none}
+.promo-row b{display:block;font-size:14px}.promo-row small{color:var(--mut)}
+.chk{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:13px;cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--gold);padding:0}
+.modal.msg-modal{border-color:rgba(217,178,95,.3)}
+.team .car{height:44px}
+@media (max-width:1560px){.mp-layout{grid-template-columns:1fr}.mp-layout>.stack:last-child{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);align-items:start}}
+@media (max-width:1180px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:980px){.mp-layout>.stack:last-child{grid-template-columns:1fr}}
+@media (max-width:480px){#wheelChip{display:none}.top{gap:6px}.bj-wrap{overflow:visible}}
+
 @media (max-width:1180px){.rl-layout,.mines-layout,.rc-top,.wh-layout,.msg-layout{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-art{display:none}.g4,.stats4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:980px){
  .app{grid-template-columns:1fr}
@@ -420,10 +499,17 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
     <main id="view"></main>
     <footer class="foot">
       <div><b>Velmont Casino</b> &copy; 2026. Play money only. No real money wagering, no deposits, no withdrawals. 18+.</div>
-      <div>All games run in your browser. Teams and drivers are fictional.</div>
+      <div>Race results are simulated. Not affiliated with Formula 1 or its teams.</div>
     </footer>
   </div>
 </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6d3"/><stop offset=".45" stop-color="#e8bf5a"/><stop offset=".7" stop-color="#b8862b"/><stop offset="1" stop-color="#f3d27a"/></linearGradient>
+<linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a8a"/><stop offset=".5" stop-color="#e01a2b"/><stop offset="1" stop-color="#7a0010"/></linearGradient>
+<linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9f7ff"/><stop offset=".45" stop-color="#3f95f2"/><stop offset="1" stop-color="#0b2f73"/></linearGradient>
+<linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9af5b4"/><stop offset=".55" stop-color="#18a64c"/><stop offset="1" stop-color="#065f2c"/></linearGradient>
+<linearGradient id="gPurple" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a77bff"/><stop offset=".55" stop-color="#5b21b6"/><stop offset="1" stop-color="#22093f"/></linearGradient>
+</defs></svg>
 <div id="toasts"></div>
 <div id="modal" class="hidden"></div>
 
@@ -476,7 +562,9 @@ const AVATARS=['🦁','🦊','🐺','🦅','🐯','🦉','🐲','🦈','👑','�
 let USERS={};try{USERS=JSON.parse(localStorage.getItem('vm_users')||'{}')}catch(e){USERS={}}
 let ME=null;
 const U=()=>USERS[ME].d;
-function persist(){try{localStorage.setItem('vm_users',JSON.stringify(USERS))}catch(e){}}
+function loadUsers(){try{return JSON.parse(localStorage.getItem('vm_users')||'{}')}catch(e){return{}}}
+function persist(extra=[]){const f=loadUsers();if(ME&&USERS[ME])f[ME]=USERS[ME];for(const k of extra)if(USERS[k])f[k]=USERS[k];for(const k in f)if(k!==ME&&!extra.includes(k))USERS[k]=f[k];try{localStorage.setItem('vm_users',JSON.stringify(f))}catch(e){}}
+addEventListener('storage',e=>{if(e.key!=='vm_users'||!ME)return;const f=loadUsers();for(const k in f)if(k!==ME)USERS[k]=f[k];const mine=f[ME];if(mine&&USERS[ME]){const ids=new Set(USERS[ME].d.inbox.map(m=>m.id));const nw=mine.d.inbox.filter(m=>!ids.has(m.id));if(nw.length){USERS[ME].d.inbox.unshift(...nw);USERS[ME].d.inbox.sort((a,b)=>b.t-a.t);renderTop();msgPopup(nw[0])}}});
 function save(){persist();renderTop()}
 function newData(name){return{name,display:name,balance:25000,xp:0,avatar:pick(AVATARS.slice(0,8)),color:pick(AV_COL),frame:'none',title:'Newcomer',bio:'',inv:{},loans:[],repaid:0,lateCount:0,lastWheel:0,wheelHist:[],codes:[],luck:false,quests:null,stats:{wagered:0,won:0,games:0,biggest:0},log:[],inbox:[{id:Date.now(),from:'Velmont Concierge',subj:'Welcome to Velmont',body:'Your account is live with a $25,000 starting balance. Spin the Lucky Wheel every 10 minutes, finish daily quests and try the code WELCOME for a bonus. Good luck at the tables.',t:Date.now(),read:false}],sent:[],created:Date.now(),lastLogin:Date.now()}}
 const pwHash=s=>{let h=5381;for(const c of 'vlm$'+s+'#9')h=((h<<5)+h+c.charCodeAt(0))|0;return(h>>>0).toString(36)};
@@ -484,7 +572,7 @@ const pwHash=s=>{let h=5381;for(const c of 'vlm$'+s+'#9')h=((h<<5)+h+c.charCodeA
 function log(type,msg,amt=null){const u=U();u.log.unshift({t:Date.now(),type,msg,amt});if(u.log.length>400)u.log.length=400}
 function inbox(subj,body,from='Velmont Concierge'){U().inbox.unshift({id:Date.now()+Math.random(),from,subj,body,t:Date.now(),read:false})}
 function toast(msg,kind='info'){const el=document.createElement('div');el.className='toast '+kind;el.innerHTML=`<span class="ti"></span><div>${msg}</div>`;$('#toasts').appendChild(el);setTimeout(()=>el.classList.add('out'),3800);setTimeout(()=>el.remove(),4200)}
-function modal(html){const m=$('#modal');m.innerHTML=`<div class="card modal">${html}</div>`;m.classList.remove('hidden')}
+function modal(html,cls=''){const m=$('#modal');m.innerHTML=`<div class="card modal ${cls}">${html}</div>`;m.classList.remove('hidden')}
 function closeModal(){$('#modal').classList.add('hidden');$('#modal').innerHTML=''}
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.closest('[data-close]'))closeModal()});
 
@@ -569,8 +657,14 @@ function renderAuth(){
   else{if(!USERS[key]||USERS[key].pw!==pwHash(p))return toast('Wrong username or password','err');ME=key;log('account','Signed in');U().lastLogin=Date.now();persist();enter();toast(`Welcome back, ${esc(U().display)}`,'gold')}
  };
 }
-function enter(){try{localStorage.setItem('vm_session',ME)}catch(e){}$('#auth').classList.add('hidden');$('#app').classList.remove('hidden');ensureQuests();checkLoans();renderSide();renderTop();renderTicker();const h=(location.hash||'').slice(1);go(VIEWS[h]?h:'lobby');startLoops()}
-function logout(){log('account','Signed out');persist();try{localStorage.removeItem('vm_session')}catch(e){}location.hash='';location.reload()}
+function enter(){try{localStorage.setItem('vm_session',ME);sessionStorage.setItem('vm_session',ME)}catch(e){}$('#auth').classList.add('hidden');$('#app').classList.remove('hidden');ensureQuests();checkLoans();renderSide();renderTop();renderTicker();startLoops();const h=(location.hash||'').slice(1);
+ if(/^bj=[A-Za-z0-9]{5}$/.test(h)){go('blackjack');mpJoin(h.slice(3));return}
+ go(VIEWS[h]?h:'lobby');setTimeout(promoPopup,900)}
+function promoPopup(){const today=new Date().toDateString();try{if(localStorage.getItem('vm_promo_off')===today||sessionStorage.getItem('vm_promo'))return;sessionStorage.setItem('vm_promo','1')}catch(e){}if(!$('#modal').classList.contains('hidden'))return;const wl=wheelLeft();
+ modal(`<button class="mx" data-close aria-label="Close">×</button><div class="promo-art"><span class="eyebrow">Tonight at Velmont</span><h2>Private tables are open</h2><p>Create a blackjack table, share the code and play with your friends in real time.</p></div><div class="promo-body"><div class="promo-row">${ic('wheel')}<div><b>Lucky Wheel</b><small>${wl?'Next free spin in '+mmss(wl):'Your free spin is ready'}</small></div></div><div class="promo-row">${ic('flag')}<div><b>Grand Prix</b><small>Back Verstappen, Norris and the full 2026 grid</small></div></div><div class="promo-row">${ic('slots')}<div><b>Velmont Royale</b><small>Jackpot now at ${fmt(JP)}</small></div></div><label class="chk"><input type="checkbox" id="prOff"> Don't show again today</label><div class="row"><button class="btn btn-gold" id="prGo" style="flex:1">Open a table</button><button class="btn" id="prLater">Maybe later</button></div></div>`,'promo-modal');
+ const done=()=>{try{if($('#prOff')&&$('#prOff').checked)localStorage.setItem('vm_promo_off',today)}catch(e){}closeModal()};$('#prGo').onclick=()=>{done();go('blackjack')};$('#prLater').onclick=done}
+function msgPopup(m){if(!$('#modal').classList.contains('hidden'))return toast(`New message from ${esc(m.from)}`,'gold');modal(`<button class="mx" data-close aria-label="Close">×</button><span class="eyebrow">New message</span><h2>${esc(m.subj)}</h2><p class="muted" style="margin-bottom:6px">From ${esc(m.from)}</p><p style="line-height:1.6">${esc(m.body)}</p><div class="row" style="margin-top:18px"><button class="btn btn-gold" id="mpOpen">Open inbox</button><button class="btn" data-close>Close</button></div>`,'msg-modal');$('#mpOpen').onclick=()=>{closeModal();MSG_TAB='inbox';go('messages')}}
+function logout(){log('account','Signed out');persist();try{localStorage.removeItem('vm_session');sessionStorage.removeItem('vm_session')}catch(e){}if(MP&&MP.role==='host'&&MP.net)for(const id in MP.S.players)if(id!=='host')MP.net.send(id,{t:'closed'});location.hash='';location.reload()}
 
 /* ========== shell ========== */
 const NAV=[['Casino',[['lobby','Lobby','home'],['roulette','Roulette','roulette',1],['blackjack','Blackjack','cards',1],['slots','Slots','slots'],['mines','Mines','mine'],['hilo','Higher or Lower','updown'],['races','Grand Prix','flag',1]]],['Rewards',[['wheel','Lucky Wheel','wheel'],['quests','Quests','target'],['codes','Codes','gift'],['shop','Shop','bag']]],['Account',[['bank','Bank','bank'],['messages','Messages','chat'],['profile','Profile','user'],['activity','Activity Log','list']]]];
@@ -611,12 +705,12 @@ function renderFeed(){const f=$('#lbFeed');if(!f)return;f.innerHTML=FEED.slice(0
 function renderTicker(){for(let i=0;i<14;i++)feedTick();const items=FEED.slice(0,14).map(x=>`<span><b>${x.n}</b> won <em>${fmt(x.a)}</em> on ${GAMENAMES[x.g]}</span>`).join('');$('#ticker').innerHTML=items+items}
 
 /* ========== LOBBY ========== */
-const GAMES=[{v:'roulette',t:'Roulette',s:'European single zero',bg:'radial-gradient(circle at 80% 20%,#b3202a,#3a0b10 70%)',i:'roulette',live:1},{v:'blackjack',t:'Blackjack',s:'Live five seat table',bg:'radial-gradient(circle at 80% 20%,#13764b,#06281a 70%)',i:'cards',live:1},{v:'races',t:'Grand Prix',s:'Bet on every race',bg:'radial-gradient(circle at 80% 20%,#c2410c,#2b0e04 70%)',i:'flag',live:1},{v:'slots',t:'Velvet Slots',s:'Five paylines',bg:'radial-gradient(circle at 80% 20%,#7c3aed,#1d0b3a 70%)',i:'slots'},{v:'mines',t:'Mines',s:'Pick gems, avoid mines',bg:'radial-gradient(circle at 80% 20%,#0e7490,#062530 70%)',i:'mine'},{v:'hilo',t:'Higher or Lower',s:'Build a streak',bg:'radial-gradient(circle at 80% 20%,#1d4ed8,#081534 70%)',i:'updown'},{v:'wheel',t:'Lucky Wheel',s:'Free spin every 10 min',bg:'radial-gradient(circle at 80% 20%,#a3762a,#2a1d07 70%)',i:'wheel'}];
+const GAMES=[{v:'roulette',t:'Roulette',s:'European single zero',bg:'radial-gradient(circle at 80% 20%,#b3202a,#3a0b10 70%)',i:'roulette',live:1},{v:'blackjack',t:'Blackjack',s:'Private tables with friends',bg:'radial-gradient(circle at 80% 20%,#13764b,#06281a 70%)',i:'cards',live:1},{v:'races',t:'Grand Prix',s:'Bet on every race',bg:'radial-gradient(circle at 80% 20%,#c2410c,#2b0e04 70%)',i:'flag',live:1},{v:'slots',t:'Velmont Royale',s:'10 lines · Grand Jackpot',bg:'radial-gradient(circle at 80% 20%,#7c3aed,#1d0b3a 70%)',i:'slots'},{v:'mines',t:'Mines',s:'Pick gems, avoid mines',bg:'radial-gradient(circle at 80% 20%,#0e7490,#062530 70%)',i:'mine'},{v:'hilo',t:'Higher or Lower',s:'Build a streak',bg:'radial-gradient(circle at 80% 20%,#1d4ed8,#081534 70%)',i:'updown'},{v:'wheel',t:'Lucky Wheel',s:'Free spin every 10 min',bg:'radial-gradient(circle at 80% 20%,#a3762a,#2a1d07 70%)',i:'wheel'}];
 const BOT_BAL={};BOTS.forEach(n=>BOT_BAL[n]=20000+strHash(n+'b')%480000);
 VIEWS.lobby=()=>{const u=U();
  const lb=[...BOTS.map(n=>({n,b:BOT_BAL[n],bot:1})),...Object.values(USERS).map(x=>({n:x.d.display,b:x.d.balance,me:x.d.name===u.name,d:x.d}))].sort((a,b)=>b.b-a.b).slice(0,8);
  $('#view').innerHTML=`
- <section class="hero"><div><span class="eyebrow">Velmont Private Club</span><h1>Welcome back, <span class="gold-t">${esc(u.display)}</span></h1><p>Five live tables are dealing now. The next Grand Prix starts soon, and your daily quests reset at midnight.</p><div class="row"><button class="btn btn-gold btn-lg" data-go="blackjack">Join a live table</button><button class="btn btn-lg" data-go="races">Next Grand Prix</button></div></div>
+ <section class="hero"><div><span class="eyebrow">Velmont Private Club</span><h1>Welcome back, <span class="gold-t">${esc(u.display)}</span></h1><p>Open a private blackjack table for your friends, back the 2026 grid in the next Grand Prix, or chase the Velmont Royale jackpot.</p><div class="row"><button class="btn btn-gold btn-lg" data-go="blackjack">Join a live table</button><button class="btn btn-lg" data-go="races">Next Grand Prix</button></div></div>
  <div class="hero-art">${cardHTML({r:'A',s:'♠'}).replace('class="pc','style="left:30%;top:20px;transform:rotate(-12deg)" class="pc')}${cardHTML({r:'K',s:'♦'}).replace('class="pc','style="left:52%;top:6px;transform:rotate(8deg)" class="pc')}<div class="hchip" style="--cc:#b3202a;left:18%;top:140px"></div><div class="hchip" style="--cc:#0f5e43;left:70%;top:130px"></div><div class="hchip" style="--cc:#1f2937;left:45%;top:160px"></div></div></section>
  <div class="stats4"><div class="stat"><span>Balance</span><b class="gold-t">${fmt(u.balance)}</b></div><div class="stat"><span>Level</span><b>${lvlOf(u.xp)}</b></div><div class="stat"><span>Total payouts</span><b>${fmt(u.stats.won)}</b></div><div class="stat"><span>Biggest win</span><b>${fmt(u.stats.biggest)}</b></div></div>
  <h2 class="sec">Games</h2>
@@ -716,40 +810,290 @@ const SEAT_POS=[[14,315],[32,360],[50,378],[68,360],[86,315]];
 function seatHTML(s,i){const[l,t]=SEAT_POS[i];if(!s)return`<div class="seat empty" style="left:${l}%;top:${t-50}px"><div class="open">Open seat</div></div>`;
  const u=s.isMe?U():null,v=s.cards.length?hv(s.cards).t:null;
  return`<div class="seat ${BJ.turn===i?'turn':''} ${s.isMe?'mine':''}" style="left:${l}%;top:${t-130}px">${s.result?`<span class="res ${s.result}">${s.result.toUpperCase()}</span>`:''}<div class="hand">${s.cards.map(cardHTML).join('')}</div>${v!==null?`<span class="hv">${v}</span>`:''}<div class="who">${s.isMe?avHTML(u,'sm'):botAv(s.name)}<span>${s.isMe?esc(u.display):s.name}</span></div>${s.bet?`<span class="betc">${fmt(s.bet)}</span>`:''}</div>`}
-VIEWS.blackjack=()=>{bjInitSeats();$('#view').innerHTML=`
- <div class="page-head"><div><span class="eyebrow">Live table · Seat 3</span><h1>Blackjack</h1><p>Six deck shoe. Dealer stands on all 17s. Blackjack pays 3 to 2.</p></div><span class="live-pill"><span class="dot"></span>Table 4 · ${ri(30,90)} watching</span></div>
+function bjSoloView(){bjInitSeats();$('#view').innerHTML=`
+ <div class="page-head"><div><span class="eyebrow">Practice table · Seat 3</span><h1>Blackjack practice</h1><p>Six deck shoe. Dealer stands on all 17s. Blackjack pays 3 to 2.</p></div><button class="btn" id="bjBack">Back to tables</button></div>
  <div class="bj-wrap"><div class="bj-table" id="bjTable"><div class="bj-dealer" id="bjDealer"></div><div class="bj-arc"><b>BLACKJACK PAYS 3 TO 2</b>Dealer must stand on 17 · Insurance not offered</div><div id="bjSeats"></div></div></div>
  <div class="bj-controls"><div class="card"><div class="bj-msg" id="bjMsg"></div><div class="row" style="margin-top:16px"><button class="btn btn-green btn-lg" id="bjHit" style="flex:1">Hit</button><button class="btn btn-red btn-lg" id="bjStand" style="flex:1">Stand</button><button class="btn btn-lg" id="bjDouble" style="flex:1">Double</button></div></div>
  <div class="card stack">${betBox('bjBet',1000)}<button class="btn btn-gold btn-lg btn-block" id="bjDeal">Deal hand</button></div></div>`;
- $('#bjHit').onclick=bjHit;$('#bjStand').onclick=bjStand;$('#bjDouble').onclick=bjDouble;$('#bjDeal').onclick=bjDeal;bjRender()};
-function bjRender(){if(!$('#bjTable'))return;const dv=hv(BJ.dealer);
+ $('#bjHit').onclick=bjHit;$('#bjStand').onclick=bjStand;$('#bjDouble').onclick=bjDouble;$('#bjDeal').onclick=bjDeal;$('#bjBack').onclick=()=>{BJMODE='lobby';VIEWS.blackjack()};bjRender()}
+function fitTables(){$$('.bj-wrap').forEach(w=>{const t=w.firstElementChild;if(!t)return;const k=Math.min(1,w.clientWidth/860);t.style.zoom=k<1?k.toFixed(3):''})}
+addEventListener('resize',fitTables);
+function bjRender(){if(!$('#bjTable'))return;fitTables();const dv=hv(BJ.dealer);
  $('#bjDealer').innerHTML=`<span class="dl">Dealer</span><div class="hand">${BJ.dealer.map(cardHTML).join('')}</div>${BJ.dealer.length?`<span class="hv">${dv.t}</span>`:''}`;
  $('#bjSeats').innerHTML=BJ.seats.map(seatHTML).join('');
  const me=BJ.seats[2],my=BJ.turn===2&&BJ.phase==='play';
  $('#bjHit').disabled=!my;$('#bjStand').disabled=!my;$('#bjDouble').disabled=!my||me.cards.length!==2||U().balance<me.bet;$('#bjDeal').disabled=BJ.phase!=='bet';$('#bjMsg').textContent=BJ.msg}
 
 /* ========== SLOTS ========== */
-const SY=[{s:'🍒',w:28,p:12},{s:'🍋',w:24,p:18},{s:'🔔',w:18,p:30},{s:'🍀',w:13,p:50},{s:'⭐',w:9,p:90},{s:'💎',w:6,p:180},{s:'👑',w:2,p:750}];
-const SYW=SY.reduce((a,b)=>a+b.w,0);
-function wpick(){let r=Math.random()*SYW;for(const s of SY){r-=s.w;if(r<0)return s}return SY[0]}
-const LINES=[[[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],[[0,0],[1,1],[2,2]],[[0,2],[1,1],[2,0]]];
-const SL={busy:false,auto:0,grid:[[SY[4],SY[0],SY[2]],[SY[6],SY[6],SY[6]],[SY[1],SY[5],SY[3]]].map((_,c)=>[0,1,2].map(r=>[[SY[0],SY[6],SY[1]],[SY[2],SY[6],SY[5]],[SY[4],SY[6],SY[3]]][c][r]))};
-VIEWS.slots=()=>{$('#view').innerHTML=`
- <div class="page-head"><div><span class="eyebrow">Five paylines</span><h1>Velvet Slots</h1><p>Your bet splits across 5 lines. Three in a row on any line pays.</p></div></div>
- <div class="grid" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)" id="slWrap"><div class="slot-machine"><div class="slot-top"><h2 class="gold-t">VELVET 7</h2><div class="slot-lights">${'<i></i>'.repeat(9)}</div></div><div class="sl-grid" id="slGrid">${[0,1,2].map(r=>[0,1,2].map(c=>`<div class="sc">${SL.grid[c][r].s}</div>`).join('')).join('')}</div><div class="sl-result" id="slRes"></div></div>
- <div class="stack"><div class="card stack">${betBox('slBet',500)}<button class="btn btn-gold btn-lg btn-block" id="slSpin">Spin</button><div class="row"><button class="btn" style="flex:1" id="slAuto">Auto spin ×10</button><button class="btn" style="flex:1" id="slStop">Stop</button></div></div>
- <div class="card"><h3>Paytable · per line</h3>${[...SY].reverse().map(s=>`<div class="pay-row"><span class="sy">${s.s}${s.s}${s.s}</span><b>${s.p}× line</b></div>`).join('')}<div class="pay-row"><span class="sy">🍒🍒</span><b>1× line</b></div><p class="muted" style="font-size:12px;margin-top:10px">Line bet equals your total bet divided by 5.${U().inv.reels?' Golden Reels adds 10% to wins.':''}</p></div></div></div>`;
- if(innerWidth<980)$('#slWrap').style.gridTemplateColumns='1fr';
- $('#slSpin').onclick=()=>slSpin();$('#slAuto').onclick=()=>{if(SL.auto)return;SL.auto=10;slSpin()};$('#slStop').onclick=()=>{SL.auto=0}};
-async function slSpin(){if(SL.busy)return;const inp=$('#slBet');if(!inp)return SL.auto=0;const bet=Math.floor(+inp.value);if(!takeBet(bet,'slots')){SL.auto=0;return}SL.busy=true;quest('slot_spin',1);
- const g=[0,1,2].map(()=>[0,1,2].map(()=>wpick()));SL.grid=g;const cells=$$('#slGrid .sc');cells.forEach(c=>c.classList.remove('win'));$('#slRes').textContent='';
- const stopped=new Set();const iv=setInterval(()=>cells.forEach((c,i)=>{if(!stopped.has(i%3))c.textContent=SY[ri(0,SY.length-1)].s}),65);
- for(let col=0;col<3;col++){await sleep(col?360:750);stopped.add(col);for(let r=0;r<3;r++){const c=cells[r*3+col];c.textContent=g[col][r].s;c.classList.remove('land');void c.offsetWidth;c.classList.add('land')}}
- clearInterval(iv);const lb=bet/5;let ret=0;const win=new Set();
- LINES.forEach(L=>{const a=L.map(([c,r])=>g[c][r]);if(a[0]===a[1]&&a[1]===a[2]){ret+=a[0].p*lb;L.forEach(([c,r])=>win.add(r*3+c))}else if(a[0].s==='🍒'&&a[1].s==='🍒'){ret+=lb;win.add(L[0][1]*3+L[0][0]);win.add(L[1][1]*3+L[1][0])}});
- const res=$('#slRes');
- if(ret>0){const p=pay(ret,'slots');win.forEach(i=>cells[i]&&cells[i].classList.add('win'));if(res)res.innerHTML=`<span class="green">You win ${fmt(p)}</span>`;if(p>=bet*5)toast(`Big win on slots: ${fmt(p)}`,'win');log('game',`Slots win`,p-bet)}else{if(res)res.innerHTML='<span class="muted">No win. Spin again.</span>';log('game','Slots no win',-bet)}
- save();SL.busy=false;if(SL.auto>1&&$('#slGrid')){SL.auto--;await sleep(700);slSpin()}else SL.auto=0}
+const SYMS=['wild','seven','crown','diamond','bar','bell','clover','cherry'];
+const SYM={wild:{w:2,p:[100,500,2000],n:'Wild'},seven:{w:3,p:[70,280,1400],n:'Lucky Seven'},crown:{w:4,p:[40,160,700],n:'Royal Crown'},diamond:{w:5,p:[28,100,400],n:'Blue Diamond'},bar:{w:7,p:[16,55,200],n:'Gold Bar'},bell:{w:9,p:[12,32,125],n:'Golden Bell'},clover:{w:11,p:[7,20,80],n:'Clover'},cherry:{w:13,p:[5,14,55],n:'Cherries'}};
+const SYM_SVG={
+ wild:'<rect x="6" y="20" width="88" height="62" rx="12" fill="url(#gPurple)" stroke="url(#gGold)" stroke-width="4"/><rect x="12" y="26" width="76" height="50" rx="8" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/><text x="50" y="61" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="800" font-size="25" fill="url(#gGold)" letter-spacing="1">WILD</text><path d="M50 4 l4.5 9 10 1.4 -7.2 7 1.7 10 -9 -4.7 -9 4.7 1.7 -10 -7.2 -7 10 -1.4z" fill="url(#gGold)" stroke="#6b4a12" stroke-width="1.5"/>',
+ seven:'<text x="50" y="86" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="800" font-size="96" fill="url(#gRed)" stroke="url(#gGold)" stroke-width="5" paint-order="stroke" stroke-linejoin="round">7</text><path d="M30 20 L44 20" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/>',
+ crown:'<path d="M12 70 L16 30 L35 50 L50 18 L65 50 L84 30 L88 70 Z" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2.5" stroke-linejoin="round"/><rect x="10" y="68" width="80" height="16" rx="4" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2.5"/><circle cx="50" cy="18" r="6.5" fill="url(#gRed)" stroke="#6b4a12" stroke-width="1.5"/><circle cx="16" cy="30" r="5.5" fill="url(#gBlue)" stroke="#6b4a12" stroke-width="1.5"/><circle cx="84" cy="30" r="5.5" fill="url(#gBlue)" stroke="#6b4a12" stroke-width="1.5"/><circle cx="50" cy="76" r="5" fill="url(#gRed)"/><circle cx="30" cy="76" r="4" fill="url(#gGreen)"/><circle cx="70" cy="76" r="4" fill="url(#gGreen)"/><path d="M24 44 L28 62" stroke="#fff6d6" stroke-width="3" stroke-linecap="round" opacity=".7"/>',
+ diamond:'<path d="M50 92 L8 38 L25 14 H75 L92 38 Z" fill="url(#gBlue)" stroke="#0b2f73" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 38 H92 M25 14 L38 38 L50 14 L62 38 L75 14 M38 38 L50 92 L62 38" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.6" stroke-linejoin="round"/><path d="M27 19 L34 33" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".85"/><circle cx="70" cy="56" r="2.5" fill="#fff" opacity=".8"/>',
+ bar:'<rect x="6" y="28" width="88" height="44" rx="9" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2.5"/><rect x="13" y="35" width="74" height="30" rx="5" fill="#1a1206"/><text x="50" y="58.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="22" fill="url(#gGold)" letter-spacing="3">BAR</text><path d="M14 31 H86" stroke="#fff6d6" stroke-width="2" opacity=".6"/>',
+ bell:'<rect x="45" y="6" width="10" height="10" rx="3" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2"/><path d="M50 13 C29 13 24 33 24 49 C24 63 18 70 11 76 H89 C82 70 76 63 76 49 C76 33 71 13 50 13 Z" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2.5" stroke-linejoin="round"/><rect x="9" y="74" width="82" height="7" rx="3.5" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2"/><circle cx="50" cy="88" r="7" fill="url(#gGold)" stroke="#6b4a12" stroke-width="2"/><path d="M36 30 C33 38 33 48 33 56" stroke="#fff6d6" stroke-width="4" stroke-linecap="round" fill="none" opacity=".7"/>',
+ clover:'<path d="M56 60 Q66 80 58 95" stroke="#065f2c" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="url(#gGreen)" stroke="#065f2c" stroke-width="2"><circle cx="35" cy="35" r="17"/><circle cx="65" cy="35" r="17"/><circle cx="35" cy="63" r="17"/><circle cx="65" cy="63" r="17"/></g><circle cx="50" cy="49" r="7" fill="#0b4d24"/><path d="M27 27 Q31 23 36 24" stroke="#d9ffe4" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>',
+ cherry:'<path d="M32 66 C36 42 50 24 70 12 M66 64 C63 44 65 28 70 12" stroke="#2f7d32" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M70 12 C80 8 92 14 94 24 C82 27 74 22 70 12Z" fill="url(#gGreen)" stroke="#065f2c" stroke-width="1.5"/><circle cx="30" cy="70" r="19" fill="url(#gRed)" stroke="#6b0008" stroke-width="2"/><circle cx="67" cy="68" r="19" fill="url(#gRed)" stroke="#6b0008" stroke-width="2"/><circle cx="23" cy="62" r="5.5" fill="#fff" opacity=".75"/><circle cx="60" cy="60" r="5.5" fill="#fff" opacity=".75"/>'
+};
+const symSVG=k=>`<svg viewBox="0 0 100 100">${SYM_SVG[k]}</svg>`;
+const SW=SYMS.reduce((a,k)=>a+SYM[k].w,0);
+function slRand(){let r=Math.random()*SW;for(const k of SYMS){r-=SYM[k].w;if(r<0)return k}return'cherry'}
+const PAYLINES=[[1,1,1,1,1],[0,0,0,0,0],[2,2,2,2,2],[0,1,2,1,0],[2,1,0,1,2],[0,0,1,2,2],[2,2,1,0,0],[1,0,0,0,1],[1,2,2,2,1],[0,1,1,1,0]];
+const LINE_COL=['#f6dd94','#ff5a62','#3be59b','#6aa8ff','#c084fc','#fb923c','#22d3ee','#f472b6','#a3e635','#facc15'];
+const LINE_BETS=[10,20,50,100,250,500,1000,2500,5000];
+const SLT={busy:false,auto:0,lb:3,grid:null};
+let JP=250000;try{JP=+localStorage.getItem('vm_jp')||250000}catch(e){}
+function jpSave(){try{localStorage.setItem('vm_jp',String(Math.floor(JP)))}catch(e){}}
+function evalLine(sy){const base=sy.find(s=>s!=='wild')||'wild';let n=0;for(const s of sy){if(s===base||s==='wild')n++;else break}let m=n>=3?SYM[base].p[n-3]:0,cnt=n;let w=0;for(const s of sy){if(s==='wild')w++;else break}if(w>=3&&SYM.wild.p[w-3]>m){m=SYM.wild.p[w-3];cnt=w}return{m,cnt,jp:w===5}}
+const symCells=col=>col.map(k=>`<div class="sym">${symSVG(k)}</div>`).join('');
+VIEWS.slots=()=>{if(!SLT.grid)SLT.grid=[0,1,2,3,4].map(()=>[0,1,2].map(slRand));
+ $('#view').innerHTML=`
+ <div class="page-head"><div><span class="eyebrow">10 paylines · Progressive jackpot</span><h1>Velmont Royale</h1><p>Land 3 or more matching symbols from the left on any of 10 lines. Wild replaces every symbol. Five wilds on a line win the Grand Jackpot.</p></div></div>
+ <div class="cab" id="cab">
+  <div class="marquee"><div class="bulbs top">${'<i></i>'.repeat(26)}</div><span class="mq-sub">Velmont Casino presents</span><h2>VELMONT ROYALE</h2><div class="jackpot"><span>Grand Jackpot</span><b id="jpAmt">${fmt(JP)}</b></div><div class="bulbs bot">${'<i></i>'.repeat(26)}</div></div>
+  <div class="reels-frame"><div class="ltags">${[0,1,2,3,4].map(n=>`<span data-ln="${n}" style="--lc:${LINE_COL[n]}">${n+1}</span>`).join('')}</div>
+   <div class="reels" id="reels">${SLT.grid.map(col=>`<div class="reel"><div class="strip">${symCells(col)}</div></div>`).join('')}<svg class="wlines" id="wlines" viewBox="0 0 500 300" preserveAspectRatio="none"></svg><div class="bigwin hidden" id="bigwin"><span id="bwT">BIG WIN</span><b id="bwA"></b></div></div>
+   <div class="ltags">${[5,6,7,8,9].map(n=>`<span data-ln="${n}" style="--lc:${LINE_COL[n]}">${n+1}</span>`).join('')}</div></div>
+  <div class="cab-panel">
+   <div class="lcds"><div class="lcd"><span>Credits</span><b id="slCred"></b></div><div class="lcd"><span>Total bet</span><b id="slTot"></b></div><div class="lcd win"><span>Win</span><b id="slWin">$0</b></div></div>
+   <button class="spin-btn" id="slSpin">SPIN</button>
+   <div class="cab-ctl"><div class="lbsel"><button id="lbDn" aria-label="Lower line bet">−</button><div><span>Line bet</span><b id="slLb"></b></div><button id="lbUp" aria-label="Raise line bet">+</button></div><div class="row" style="flex-wrap:nowrap"><button class="btn btn-sm" id="slMax" style="flex:1">Max bet</button><button class="btn btn-sm" id="slAuto" style="flex:1">Auto 10</button></div></div>
+  </div>
+ </div>
+ <h2 class="sec">Paytable <span class="muted" style="font-size:14px;font-family:Inter,sans-serif">pays in multiples of your line bet</span></h2>
+ <div class="paygrid">${SYMS.map(k=>`<div class="paycard"><div class="pi">${symSVG(k)}</div><div><b>${SYM[k].n}</b>${[5,4,3].map(n=>`<div class="pr"><span>${n} in a row</span><b>${k==='wild'&&n===5?'Jackpot':SYM[k].p[n-3]+'×'}</b></div>`).join('')}</div></div>`).join('')}</div>
+ <p class="muted" style="font-size:12px;margin-top:14px">Total bet equals line bet × 10 lines. 1% of every spin feeds the Grand Jackpot.${U().inv.reels?' Golden Reels adds 10% to line wins.':''}</p>`;
+ $('#slSpin').onclick=()=>slSpin();
+ $('#lbDn').onclick=()=>{if(SLT.busy)return;SLT.lb=Math.max(0,SLT.lb-1);slPanel()};
+ $('#lbUp').onclick=()=>{if(SLT.busy)return;SLT.lb=Math.min(LINE_BETS.length-1,SLT.lb+1);slPanel()};
+ $('#slMax').onclick=()=>{if(SLT.busy)return;let i=LINE_BETS.length-1;while(i>0&&LINE_BETS[i]*10>U().balance)i--;SLT.lb=i;slPanel()};
+ $('#slAuto').onclick=()=>{if(SLT.auto){SLT.auto=0;slPanel();return}SLT.auto=10;slPanel();slSpin()};
+ $$('.ltags span').forEach(s=>{s.onmouseenter=()=>{if(!SLT.busy)slDrawLines([{li:+s.dataset.ln}],true)};s.onmouseleave=()=>{if(!SLT.busy&&!$('#wlines').dataset.keep)$('#wlines').innerHTML=''}});
+ slPanel()};
+function slPanel(){if(!$('#slCred'))return;const lb=LINE_BETS[SLT.lb];$('#slCred').textContent=fmt(U().balance);$('#slTot').textContent=fmt(lb*10);$('#slLb').textContent=fmt(lb);$('#slAuto').textContent=SLT.auto?`Stop (${SLT.auto})`:'Auto 10';$('#slSpin').disabled=SLT.busy;const j=$('#jpAmt');if(j)j.textContent=fmt(JP)}
+function slDrawLines(wins,preview){const s=$('#wlines');if(!s)return;s.dataset.keep=preview?'':'1';s.innerHTML=wins.map(w=>`<polyline style="color:${LINE_COL[w.li]}" stroke="${LINE_COL[w.li]}" ${preview?'opacity=".85"':''} points="${PAYLINES[w.li].map((r,c)=>`${c*100+50},${r*100+50}`).join(' ')}"/>`).join('')}
+function countUp(el,to,ms=900){if(!el)return;const t0=performance.now();const f=t=>{const k=Math.min(1,(t-t0)/ms);el.textContent=fmt(to*(1-Math.pow(1-k,3)));if(k<1&&el.isConnected)requestAnimationFrame(f)};requestAnimationFrame(f)}
+async function slSpin(){if(SLT.busy)return;if(!$('#reels')){SLT.auto=0;return}
+ const lb=LINE_BETS[SLT.lb],bet=lb*10;if(!takeBet(bet,'slots')){SLT.auto=0;slPanel();return}
+ SLT.busy=true;quest('slot_spin',1);JP+=bet*.01;jpSave();slPanel();
+ const wl=$('#wlines');wl.innerHTML='';wl.dataset.keep='1';$('#bigwin').classList.add('hidden');$('#slWin').textContent='$0';
+ const fin=[0,1,2,3,4].map(()=>[0,1,2].map(slRand));
+ const reels=$$('#reels .reel'),H=reels[0].clientHeight/3;let longest=0;
+ reels.forEach((reel,c)=>{const strip=reel.querySelector('.strip');const syms=[...fin[c],...Array.from({length:14+c*5},slRand),...SLT.grid[c]];strip.innerHTML=symCells(syms);strip.style.transition='none';strip.style.transform=`translateY(${-(syms.length-3)*H}px)`;void strip.offsetHeight;const dur=1.0+c*.3;longest=Math.max(longest,dur);reel.classList.add('spin');strip.style.transition=`transform ${dur}s cubic-bezier(.3,.02,.2,1.03)`;strip.style.transform='translateY(0)';setTimeout(()=>{reel.classList.remove('spin');reel.classList.add('stop');setTimeout(()=>reel.classList.remove('stop'),320)},dur*1000-140)});
+ await sleep(longest*1000+60);
+ SLT.grid=fin;
+ reels.forEach((reel,c)=>{const strip=reel.querySelector('.strip');strip.style.transition='none';strip.style.transform='translateY(0)';strip.innerHTML=symCells(fin[c])});
+ let ret=0,jpHit=false;const wins=[];
+ PAYLINES.forEach((L,li)=>{const e=evalLine(L.map((r,c)=>fin[c][r]));if(e.m>0){ret+=e.m*lb;wins.push({li,cnt:e.cnt})}if(e.jp)jpHit=true});
+ let total=0;
+ if(ret>0)total+=pay(ret,'slots');
+ if(jpHit){const jp=Math.floor(JP);JP=250000;jpSave();const u=U();u.balance+=jp;u.stats.won+=jp;u.stats.biggest=Math.max(u.stats.biggest,jp);total+=jp;log('game','Slots GRAND JACKPOT',jp);inbox('Grand Jackpot','You hit the Velmont Royale Grand Jackpot and won '+fmt(jp)+'.');save()}
+ if(wins.length&&$('#reels')){slDrawLines(wins);const rr=$$('#reels .reel');wins.forEach(w=>PAYLINES[w.li].slice(0,w.cnt).forEach((r,c)=>{const s=rr[c]&&rr[c].querySelectorAll('.sym')[r];if(s)s.classList.add('hit')}))}
+ if(total>0){countUp($('#slWin'),total);log('game',`Slots win on ${wins.length} line${wins.length>1?'s':''}`,total-bet);
+  const x=total/bet;if((x>=15||jpHit)&&$('#bigwin')){const bw=$('#bigwin');$('#bwT').textContent=jpHit?'JACKPOT':x>=50?'MEGA WIN':'BIG WIN';bw.classList.remove('hidden');countUp($('#bwA'),total,1600);toast(`${jpHit?'Grand Jackpot':'Big win'} on Velmont Royale: ${fmt(total)}`,'gold');await sleep(2400);if($('#bigwin'))$('#bigwin').classList.add('hidden')}}
+ else log('game','Slots no win',-bet);
+ save();SLT.busy=false;slPanel();
+ if(SLT.auto>1&&$('#reels')){SLT.auto--;slPanel();await sleep(wins.length?1100:550);if(SLT.auto)slSpin()}else{SLT.auto=0;slPanel()}}
+
+/* ========== MULTIPLAYER BLACKJACK ========== */
+const NET_LOCAL=new URLSearchParams(location.search).get('net')==='local';
+const PFX='velmont-bj-';
+let PEER_P=null;
+function loadPeer(){if(window.Peer)return Promise.resolve();if(PEER_P)return PEER_P;PEER_P=new Promise((res,rej)=>{const urls=['https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.5/peerjs.min.js','https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js'];let i=0;const next=()=>{if(i>=urls.length)return rej(new Error('load'));const s=document.createElement('script');s.src=urls[i++];s.onload=()=>window.Peer?res():next();s.onerror=()=>{s.remove();next()};document.head.appendChild(s)};next()});PEER_P.catch(()=>{PEER_P=null});return PEER_P}
+const Net={
+ async host(code,h){
+  if(NET_LOCAL){const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!=='host')return;if(m.k==='ping')return ch.postMessage({to:m.from,from:'host',k:'pong'});if(m.k==='hello')h.conn(m.from);if(m.k==='msg')h.data(m.from,m.d);if(m.k==='bye')h.close(m.from)};setTimeout(h.ready,20);return{send:(id,d)=>ch.postMessage({to:id,from:'host',k:'msg',d}),close:()=>{ch.postMessage({to:'*',from:'host',k:'bye'});ch.close()}}}
+  await loadPeer();
+  const peer=new Peer(PFX+code,{debug:0}),conns=new Map();
+  peer.on('open',()=>h.ready());
+  peer.on('error',e=>h.error(e));
+  peer.on('disconnected',()=>{try{peer.reconnect()}catch(e){}});
+  peer.on('connection',c=>{c.on('open',()=>{conns.set(c.peer,c);h.conn(c.peer)});c.on('data',d=>h.data(c.peer,d));c.on('close',()=>{conns.delete(c.peer);h.close(c.peer)});c.on('error',()=>{})});
+  return{send:(id,d)=>{const c=conns.get(id);if(c&&c.open)c.send(d)},close:()=>{try{peer.destroy()}catch(e){}}}
+ },
+ async join(code,h){
+  let done=false;const fail=m=>{if(done)return;done=true;h.error(m)};
+  if(NET_LOCAL){const me='c'+Math.random().toString(36).slice(2,9);const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!==me&&m.to!=='*')return;if(m.k==='pong'&&!done){done=true;ch.postMessage({to:'host',from:me,k:'hello'});h.open(me)}if(m.k==='msg')h.data(m.d);if(m.k==='bye')h.close()};ch.postMessage({to:'host',from:me,k:'ping'});setTimeout(()=>{if(!done){ch.close();fail('Table not found. Check the code.')}},2500);return{send:d=>ch.postMessage({to:'host',from:me,k:'msg',d}),close:()=>{ch.postMessage({to:'host',from:me,k:'bye'});ch.close()}}}
+  await loadPeer();
+  const peer=new Peer({debug:0});let conn=null;
+  peer.on('error',e=>{if(!done){fail(e.type==='peer-unavailable'?'Table not found. Check the code or ask the host to reopen it.':'Connection failed ('+e.type+')');try{peer.destroy()}catch(x){}}});
+  peer.on('open',id=>{conn=peer.connect(PFX+code,{reliable:true});conn.on('open',()=>{if(done)return;done=true;h.open(id)});conn.on('data',d=>h.data(d));conn.on('close',()=>h.close())});
+  setTimeout(()=>{if(!done){fail('Could not reach the table. The host may be offline.');try{peer.destroy()}catch(e){}}},15000);
+  return{send:d=>{if(conn&&conn.open)conn.send(d)},close:()=>{try{conn&&conn.close()}catch(e){}try{peer.destroy()}catch(e){}}}
+ }
+};
+const SEATS=5,BET_T=15,TURN_T=25;
+let MP=null,BJMODE='lobby';
+const genCode=()=>Array.from({length:5},()=>'ABCDEFGHJKMNPQRSTUVWXYZ23456789'[Math.floor(Math.random()*31)]).join('');
+function myProfile(){const u=U();return{name:u.display,avatar:u.avatar,color:u.color,frame:u.frame,title:u.title,vip:!!u.luck}}
+function recentTables(){try{return JSON.parse(localStorage.getItem('vm_recent')||'[]')}catch(e){return[]}}
+function saveRecent(code,name,role){const l=recentTables().filter(r=>r.code!==code);l.unshift({code,name,role,t:Date.now()});try{localStorage.setItem('vm_recent',JSON.stringify(l.slice(0,6)))}catch(e){}}
+const inviteLink=code=>location.href.split('#')[0]+'#bj='+code;
+
+/* host engine */
+function hDraw(){if(MP.shoe.length<52){MP.shoe=newShoe();hostSys('The dealer shuffles a fresh six deck shoe')}return MP.shoe.pop()}
+function hTake(pred){const i=MP.shoe.findIndex(pred);return i<0?null:MP.shoe.splice(i,1)[0]}
+function hDrawFor(cards,vip){if(vip){const{t,soft}=hv(cards);if(!soft&&t>=10&&t<=16){if(Math.random()<(t>=12?.72:.35)){const c=hTake(c=>cvl(c)===21-t);if(c)return c}if(t>=12&&Math.random()<.6){const c=hTake(c=>c.r!=='A'&&cvl(c)<=21-t);if(c)return c}}}return hDraw()}
+function hDrawDealer(vip){if(vip){const{t,soft}=hv(MP.S.dealer);if(!soft&&t>=12&&t<=16&&Math.random()<.3){const c=hTake(c=>c.r!=='A'&&cvl(c)>21-t);if(c)return c}}return hDraw()}
+function hostSys(m){if(!MP||!MP.S)return;MP.S.chat.push({sys:1,m,t:Date.now()});if(MP.S.chat.length>40)MP.S.chat.shift()}
+function hostSend(id,msg){if(!MP)return;if(id==='host')clientHandle(msg);else MP.net&&MP.net.send(id,msg)}
+function mpSanitize(S){const v=JSON.parse(JSON.stringify(S));v.dealer=v.dealer.map(c=>c.hidden?{hidden:true,r:'?',s:'♠'}:c);for(const k in v.players)delete v.players[k].vip;return v}
+function mpBroadcast(){if(!MP||MP.role!=='host')return;const v=mpSanitize(MP.S);for(const id in MP.S.players){const p=MP.S.players[id];if(id!=='host'&&p.online!==false)MP.net.send(id,{t:'state',s:v})}mpOnState(v)}
+function mpOnState(v){const prev=MP.V;MP.V=v;if(prev&&v.chat.length&&CUR!=='blackjack'){const last=v.chat[v.chat.length-1];const pl=prev.chat[prev.chat.length-1];if(last&&(!pl||last.t!==pl.t)&&!last.sys&&last.id!==MP.myId)toast(`${esc(last.n)} at your table: ${esc(last.m)}`,'gold')}if(CUR==='blackjack'&&!$('#mpTable'))mpView();else mpRender()}
+async function mpCreate(name,minBet){if(MP)return;const code=genCode();
+ MP={role:'host',code,myId:'host',connecting:true,shoe:newShoe(),S:{name:String(name||'Private table').slice(0,28),minBet,phase:'betting',t:BET_T,turn:-1,turnT:0,players:{},seats:[null,null,null,null,null],dealer:[],msg:'Take a seat to start',chat:[],round:0},V:null};
+ mpView();
+ try{MP.net=await Net.host(code,{
+  ready:()=>{if(!MP)return;MP.connecting=false;hostJoin('host',myProfile());hostSys(`Table opened by ${U().display}`);saveRecent(code,MP.S.name,'host');log('game',`Opened blackjack table ${code}`);persist();MP.tick=setInterval(hostTick,1000);mpBroadcast();mpView();toast(`Your table is open. Share code ${code} with your friends.`,'gold')},
+  conn:()=>{},
+  data:(id,d)=>hostHandle(id,d),
+  close:id=>hostDrop(id),
+  error:e=>{if(!MP)return;if(MP.connecting){const t=e&&e.type;mpCleanup(true);if(t==='unavailable-id')return mpCreate(name,minBet);toast('Could not open the table'+(t?' ('+t+')':'')+'. Check your connection.','err')}else if(e&&e.type==='network')toast('Network trouble. Trying to reconnect.','err')}})}
+ catch(e){mpCleanup(true);toast('Could not load the multiplayer service. Check your internet connection.','err')}}
+function hostJoin(id,q){const S=MP.S;q=q||{};S.players[id]={id,name:String(q.name||'Guest').slice(0,18),avatar:esc(String(q.avatar||'🙂').slice(0,4)),color:/^#[0-9a-f]{6}$/i.test(q.color)?q.color:'#2a2f3d',frame:['none','gold','emerald','neon','diamond'].includes(q.frame)?q.frame:'none',title:String(q.title||'').slice(0,20),vip:!!q.vip,seat:-1,bet:0,cards:[],res:'',done:false,online:true}}
+function hostHandle(id,d){if(!MP||MP.role!=='host'||!d)return;const S=MP.S;const p=S.players[id];
+ if(d.t==='hello'){if(Object.keys(S.players).length>=12)return hostSend(id,{t:'full'});if(!p){hostJoin(id,d.p);hostSys(`${S.players[id].name} joined the table`)}return mpBroadcast()}
+ if(!p)return;
+ switch(d.t){
+  case'sit':{const s=+d.seat;if(p.seat>=0||!(s>=0&&s<SEATS)||S.seats[s])return;S.seats[s]=id;p.seat=s;hostSys(`${p.name} sat down at seat ${s+1}`);break}
+  case'standup':{if(p.seat<0||p.bet)return;S.seats[p.seat]=null;p.seat=-1;p.cards=[];p.res='';break}
+  case'bet':{const a=Math.floor(+d.amt)||0;if(S.phase!=='betting'||p.seat<0||p.bet||a<S.minBet||a>1e9){if(a>0)hostSend(id,{t:'refund',amt:a,reason:'the bet was not accepted'});return}p.bet=a;p.cards=[];p.res='';const seated=S.seats.filter(Boolean).map(x=>S.players[x]);if(seated.every(x=>x.bet>0))S.t=Math.min(S.t,3);break}
+  case'dealnow':{if(id==='host'&&S.phase==='betting'&&S.seats.some(x=>x&&S.players[x].bet>0))S.t=Math.min(S.t,1);break}
+  case'act':{if(S.phase!=='playing'||S.seats[S.turn]!==id||p.done){if(d.a==='double'&&d.amt>0)hostSend(id,{t:'refund',amt:+d.amt,reason:'it was not your turn'});return}hostAct(id,p,d);return}
+  case'chat':{const m=String(d.m||'').trim().slice(0,200);if(!m)return;S.chat.push({n:p.name,m,t:Date.now(),id});if(S.chat.length>40)S.chat.shift();break}
+  case'kick':{if(id!=='host'||!d.who||d.who==='host'||!S.players[d.who])return;const q=S.players[d.who];hostSend(d.who,{t:'kicked'});hostSys(`${q.name} was removed by the host`);hostDrop(d.who,true);return}
+  case'leave':hostDrop(id);return;
+  default:return}
+ mpBroadcast()}
+function hostDrop(id,quiet){if(!MP||MP.role!=='host')return;const S=MP.S,p=S.players[id];if(!p)return;if(!quiet)hostSys(`${p.name} left the table`);
+ const inHand=p.bet>0&&p.cards.length&&S.phase!=='betting'&&S.phase!=='settle';
+ if(inHand){p.online=false;p.done=true;if(S.phase==='playing'&&S.seats[S.turn]===id)hostNext()}
+ else{if(p.seat>=0)S.seats[p.seat]=null;delete S.players[id]}
+ mpBroadcast()}
+function hostTick(){if(!MP||MP.role!=='host')return;const S=MP.S;
+ if(S.phase==='betting'){const seated=S.seats.filter(Boolean);if(!seated.length){S.t=BET_T;S.msg='Take a seat to start the next hand'}else{S.t--;const n=seated.filter(id=>S.players[id].bet>0).length;S.msg=n?`${n} of ${seated.length} bets in · dealing in ${Math.max(0,S.t)}s`:`Place your bets · ${Math.max(0,S.t)}s`;if(S.t<=0){if(n)return hostDeal();S.t=BET_T}}mpBroadcast()}
+ else if(S.phase==='playing'){S.turnT--;if(S.turnT<=0){const id=S.seats[S.turn];if(id&&S.players[id]){S.players[id].done=true;hostSys(`${S.players[id].name} ran out of time and stands`)}hostNext();return}mpBroadcast()}}
+async function hostDeal(){const S=MP.S;S.phase='dealing';S.round++;S.dealer=[];S.turn=-1;
+ const inHand=[];S.seats.forEach((id,i)=>{if(!id)return;const p=S.players[id];p.cards=[];p.res='';p.done=false;p.doubled=false;if(p.bet>0)inHand.push(i)});
+ S.msg='Dealing';mpBroadcast();
+ for(let r=0;r<2;r++){for(const i of inHand){const p=S.players[S.seats[i]];if(p)p.cards.push(hDraw());mpBroadcast();await sleep(320);if(!MP)return}const dc=hDraw();if(r===1)dc.hidden=true;S.dealer.push(dc);mpBroadcast();await sleep(320);if(!MP)return}
+ const up=S.dealer[0];if(up.r==='A'||cvl(up)===10){S.msg='Dealer checks for blackjack';mpBroadcast();await sleep(900);if(!MP)return;if(hv(S.dealer.map(c=>({...c,hidden:false}))).t===21){S.dealer[1].hidden=false;S.msg='Dealer has blackjack';mpBroadcast();await sleep(700);return hostSettle()}}
+ inHand.forEach(i=>{const p=S.players[S.seats[i]];if(p&&hv(p.cards).t===21)p.done=true});
+ S.phase='playing';hostNext()}
+function hostNext(){if(!MP)return;const S=MP.S;if(S.phase!=='playing')return;let i=S.turn+1;
+ for(;i<SEATS;i++){const id=S.seats[i];if(!id)continue;const p=S.players[id];if(p.bet>0&&p.cards.length&&!p.done)break}
+ if(i>=SEATS){S.turn=-1;hostDealer();return}
+ S.turn=i;S.turnT=TURN_T;S.msg=`${S.players[S.seats[i]].name} to act`;mpBroadcast()}
+function hostAct(id,p,d){const S=MP.S;
+ if(d.a==='hit'){p.cards.push(hDrawFor(p.cards,p.vip));if(hv(p.cards).t>=21){p.done=true;mpBroadcast();setTimeout(hostNext,550)}else{S.turnT=TURN_T;mpBroadcast()}}
+ else if(d.a==='stand'){p.done=true;hostNext()}
+ else if(d.a==='double'){if(p.cards.length!==2||+d.amt!==p.bet){if(d.amt>0)hostSend(id,{t:'refund',amt:+d.amt,reason:'double is only allowed on your first two cards'});return}p.bet*=2;p.doubled=true;p.cards.push(hDrawFor(p.cards,p.vip));p.done=true;mpBroadcast();setTimeout(hostNext,650)}}
+async function hostDealer(){const S=MP.S;S.phase='dealer';if(S.dealer[1])S.dealer[1].hidden=false;S.msg='Dealer reveals';mpBroadcast();await sleep(750);if(!MP)return;
+ const hands=S.seats.filter(Boolean).map(id=>S.players[id]).filter(p=>p.bet>0&&p.cards.length);
+ const vip=hands.some(p=>p.vip);
+ if(hands.some(p=>hv(p.cards).t<=21))while(hv(S.dealer).t<17){S.dealer.push(hDrawDealer(vip));mpBroadcast();await sleep(750);if(!MP)return}
+ hostSettle()}
+function hostSettle(){const S=MP.S;S.dealer.forEach(c=>c.hidden=false);const d=hv(S.dealer).t,dbj=S.dealer.length===2&&d===21;
+ for(const id of S.seats){if(!id)continue;const p=S.players[id];if(!p.bet||!p.cards.length)continue;const t=hv(p.cards).t,pbj=p.cards.length===2&&t===21;let ret=0,res;
+  if(t>21)res='Bust';else if(pbj&&!dbj){ret=p.bet*2.5;res='Blackjack'}else if(dbj&&!pbj)res='Lose';else if(d>21||t>d){ret=p.bet*2;res='Win'}else if(t===d){ret=p.bet;res='Push'}else res='Lose';
+  p.res=res;p.ret=ret;if(p.online!==false)hostSend(id,{t:'result',bet:p.bet,ret,res,total:t,dealer:d,round:S.round})}
+ S.phase='settle';S.msg=d>21?`Dealer busts with ${d}`:`Dealer stands on ${d}`;hostSys(S.msg);mpBroadcast();
+ setTimeout(()=>{if(!MP)return;for(const id in S.players){const p=S.players[id];if(p.online===false){if(p.seat>=0)S.seats[p.seat]=null;delete S.players[id];continue}p.bet=0;p.done=false;p.doubled=false;p.cards=[];p.res=''}S.dealer=[];S.phase='betting';S.t=BET_T;S.turn=-1;mpBroadcast()},5500)}
+
+/* client side */
+function clientHandle(d){if(!MP||!d)return;
+ if(d.t==='state'){if(MP.role==='client')mpOnState(d.s);return}
+ if(d.t==='result'){MP.settled=d.round;applyResult(d);return}
+ if(d.t==='refund'){refund(d.amt);toast(`${fmt(d.amt)} returned because ${esc(d.reason)}`,'info');return}
+ if(d.t==='kicked'){mpRefundOpen();MP.leaving=true;toast('The host removed you from the table','err');mpCleanup();return}
+ if(d.t==='closed'){mpRefundOpen();MP.leaving=true;toast('The host closed the table','info');mpCleanup();return}
+ if(d.t==='full'){MP.leaving=true;toast('This table is full','err');mpCleanup()}}
+function applyResult(r){const u=U();quest('bj_hand',1);let ret=r.ret;if(r.res==='Blackjack'&&u.inv.velvet)ret=r.bet*3;
+ if(r.res==='Push'){u.balance+=ret;log('game','Blackjack table push',0);toast(`Push. Your ${fmt(ret)} is returned`,'info')}
+ else if(ret>0){const p=pay(ret,'blackjack');quest('bj_win',1);log('game',`Blackjack table ${r.res.toLowerCase()} with ${r.total}`,p-r.bet);toast(`${r.res==='Blackjack'?'Blackjack! ':''}You win ${fmt(p)}`,'win')}
+ else{log('game',`Blackjack table ${r.res==='Bust'?'bust':'lost with '+r.total}`,-r.bet);toast(r.res==='Bust'?`Bust. You lose ${fmt(r.bet)}`:`Dealer wins. You lose ${fmt(r.bet)}`,'lose')}
+ save()}
+function mpMe(){return MP&&MP.V?MP.V.players[MP.myId]:null}
+function mpRefundOpen(){const me=mpMe();if(me&&me.bet>0&&MP.V.phase!=='settle'&&MP.settled!==MP.V.round){refund(me.bet);toast(`Your open bet of ${fmt(me.bet)} was returned`,'info')}}
+function mpSend(d){if(!MP)return;if(MP.role==='host')hostHandle('host',d);else MP.net&&MP.net.send(d)}
+async function mpJoin(code){code=String(code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(code.length!==5)return toast('Table codes have 5 characters','err');if(MP)return toast('Leave your current table first','err');
+ MP={role:'client',code,myId:null,connecting:true,V:null};mpView();
+ try{MP.net=await Net.join(code,{
+  open:id=>{if(!MP)return;MP.myId=id;MP.connecting=false;MP.net.send({t:'hello',p:myProfile()});saveRecent(code,'','join');log('game',`Joined blackjack table ${code}`);persist()},
+  data:d=>clientHandle(d),
+  close:()=>{if(MP&&!MP.leaving){mpRefundOpen();toast('Lost connection to the table','err');mpCleanup()}},
+  error:m=>{toast(esc(m),'err');mpCleanup()}})}
+ catch(e){toast('Could not load the multiplayer service. Check your internet connection.','err');mpCleanup()}}
+function mpLeave(){if(!MP)return;if(MP.role==='host'){modal(`<h2>Close this table?</h2><p class="muted">Everyone at the table is sent back to the lobby. Open bets are returned.</p><div class="row" style="margin-top:18px"><button class="btn btn-red" id="mcGo">Close table</button><button class="btn" data-close>Keep playing</button></div>`);$('#mcGo').onclick=()=>{closeModal();for(const id in MP.S.players)if(id!=='host')MP.net.send(id,{t:'closed'});mpRefundOpen();MP.leaving=true;setTimeout(()=>mpCleanup(),250)};return}
+ mpRefundOpen();MP.leaving=true;mpSend({t:'leave'});setTimeout(()=>mpCleanup(),150)}
+function mpCleanup(silent){if(!MP)return;clearInterval(MP.tick);try{MP.net&&MP.net.close()}catch(e){}MP=null;if(!silent&&CUR==='blackjack')VIEWS.blackjack();else if(silent&&CUR==='blackjack')VIEWS.blackjack()}
+addEventListener('beforeunload',()=>{if(MP&&MP.role==='host'&&MP.net)for(const id in MP.S.players)if(id!=='host')MP.net.send(id,{t:'closed'})});
+
+/* views */
+VIEWS.blackjack=()=>{if(MP)return mpView();if(BJMODE==='solo')return bjSoloView();const u=U(),rec=recentTables();
+ $('#view').innerHTML=`
+ <div class="page-head"><div><span class="eyebrow">Live multiplayer</span><h1>Blackjack</h1><p>Open a private table and play in real time with your friends on their own phones and computers.</p></div></div>
+ <div class="grid g3">
+  <div class="card stack"><h3>Create a table</h3><div class="field"><label>Table name</label><input id="lbName" maxlength="28" value="${esc(u.display)}'s table"></div><div class="field"><label>Minimum bet</label><select id="lbMin">${[100,500,1000,5000,10000].map(v=>`<option value="${v}" ${v===500?'selected':''}>${fmt(v)}</option>`).join('')}</select></div><button class="btn btn-gold btn-lg btn-block" id="lbCreate">Create table</button><p class="muted" style="font-size:12px">You host the table. Keep this tab open while your friends play.</p></div>
+  <div class="card stack"><h3>Join a table</h3><div class="field"><label>Table code</label><input id="lbCode" maxlength="5" placeholder="ABCDE" autocomplete="off" class="code-field"></div><button class="btn btn-green btn-lg btn-block" id="lbJoin">Join table</button><p class="muted" style="font-size:12px">Ask the host for the 5 character code or open their invite link.</p></div>
+  <div class="card stack"><h3>Practice</h3><p class="muted" style="line-height:1.6;flex:1">Play solo against the dealer with practice players at the table. No friends needed.</p><button class="btn btn-lg btn-block" id="lbSolo">Practice table</button></div>
+ </div>
+ <h2 class="sec">How it works</h2>
+ <div class="steps"><div class="step"><b>1</b><p>Create a table and pick the minimum bet.</p></div><div class="step"><b>2</b><p>Send your friends the code or the invite link.</p></div><div class="step"><b>3</b><p>They open the site, sign in and join. Five seats, and more people can watch.</p></div><div class="step"><b>4</b><p>Everyone bets with their own balance against the dealer. Chat lives at the table.</p></div></div>
+ ${rec.length?`<h2 class="sec">Recent tables</h2><div class="card">${rec.map(r=>`<div class="kv"><span><b style="letter-spacing:.2em">${esc(r.code)}</b> <span class="muted">· ${esc(r.name||'Table')} · ${r.role==='host'?'Hosted':'Joined'} ${ago(r.t)}</span></span>${r.role==='host'?'':`<button class="btn btn-sm" data-rj="${esc(r.code)}">Rejoin</button>`}</div>`).join('')}</div>`:''}`;
+ $('#lbCreate').onclick=()=>mpCreate($('#lbName').value.trim()||u.display+"'s table",+$('#lbMin').value);
+ $('#lbJoin').onclick=()=>mpJoin($('#lbCode').value);
+ $('#lbCode').onkeydown=e=>{if(e.key==='Enter')mpJoin(e.target.value)};
+ $('#lbSolo').onclick=()=>{BJMODE='solo';VIEWS.blackjack()};
+ $$('[data-rj]').forEach(b=>b.onclick=()=>mpJoin(b.dataset.rj))};
+function mpView(){if(CUR!=='blackjack')return;
+ if(!MP||MP.connecting||!MP.V){$('#view').innerHTML=`<div class="card" style="max-width:520px;margin:60px auto;text-align:center;padding:40px"><div class="spinner"></div><h2 style="font-family:'Playfair Display',serif;font-size:26px">${MP&&MP.role==='host'?'Opening your table':'Joining table '+esc(MP?MP.code:'')}</h2><p class="muted" style="margin:8px 0 20px">Connecting to the Velmont network.</p><button class="btn" id="mpCancel">Cancel</button></div>`;$('#mpCancel').onclick=()=>{if(MP)MP.leaving=true;mpCleanup()};return}
+ $('#view').innerHTML=`
+ <div class="page-head"><div><span class="eyebrow">Private table · ${MP.role==='host'?'You are the host':'Guest'}</span><h1 id="mpName"></h1><p id="mpSub"></p></div>
+  <div class="row"><div class="codebox"><span>Table code</span><b>${MP.code}</b></div><button class="btn" id="mpCopy">Copy invite link</button><button class="btn btn-red" id="mpLeave">${MP.role==='host'?'Close table':'Leave table'}</button></div></div>
+ <div class="mp-layout"><div class="stack" style="min-width:0"><div class="bj-wrap"><div class="bj-table" id="mpTable"><div class="bj-dealer" id="mpDealer"></div><div class="bj-arc"><b>BLACKJACK PAYS 3 TO 2</b>Dealer stands on 17 · Private table ${MP.code}</div><div id="mpSeats"></div></div></div>
+  <div class="card"><div class="row" style="justify-content:space-between"><div class="bj-msg" id="mpMsg"></div><span class="tag gold" id="mpTimer"></span></div><div class="timer-bar"><i id="mpBar"></i></div><div id="mpCtl" style="margin-top:16px"></div></div></div>
+  <div class="stack"><div class="card"><h3>At the table</h3><div id="mpPlayers"></div></div><div class="card"><h3>Table chat</h3><div class="chat" id="mpChat" style="height:280px"></div><form class="row" id="mpChatF" style="margin-top:12px;flex-wrap:nowrap"><input id="mpChatI" style="flex:1;min-width:0" maxlength="200" placeholder="Message the table"><button class="btn btn-gold">Send</button></form></div></div></div>`;
+ $('#mpCopy').onclick=()=>{const l=inviteLink(MP.code);(navigator.clipboard?navigator.clipboard.writeText(l):Promise.reject()).then(()=>toast('Invite link copied. Send it to your friends.','win')).catch(()=>modal(`<h2>Invite link</h2><p class="muted">Copy this link and send it to your friends.</p><input style="width:100%;margin-top:14px" value="${esc(l)}" onclick="this.select()" readonly><div class="row" style="margin-top:16px"><button class="btn" data-close>Done</button></div>`))};
+ $('#mpLeave').onclick=mpLeave;
+ $('#mpSeats').onclick=e=>{const b=e.target.closest('[data-sit]');if(b)mpSend({t:'sit',seat:+b.dataset.sit})};
+ $('#mpPlayers').onclick=e=>{const b=e.target.closest('[data-kick]');if(b)mpSend({t:'kick',who:b.dataset.kick})};
+ $('#mpCtl').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;mpControl(b.dataset.a)};
+ $('#mpChatF').onsubmit=e=>{e.preventDefault();const v=$('#mpChatI').value.trim();if(!v)return;mpSend({t:'chat',m:v});$('#mpChatI').value=''};
+ MP.ctlSig=null;MP.chatN=null;mpRender()}
+function mpControl(a){const V=MP&&MP.V,me=mpMe();if(!V||!me)return;
+ if(a==='bet'){if(V.phase!=='betting'||me.seat<0||me.bet)return;const amt=Math.floor(+$('#mpBet').value);if(amt<V.minBet)return toast('The minimum bet here is '+fmt(V.minBet),'err');if(!takeBet(amt,'blackjack'))return;mpSend({t:'bet',amt});return}
+ if(a==='double'){if(!takeBet(me.bet,'blackjack',false))return;mpSend({t:'act',a:'double',amt:me.bet});return}
+ if(a==='hit'||a==='stand')return mpSend({t:'act',a});
+ if(a==='standup')return mpSend({t:'standup'});
+ if(a==='deal')return mpSend({t:'dealnow'})}
+function mpSeatHTML(id,i,V,me){const[l,t]=SEAT_POS[i];const p=id?V.players[id]:null;
+ if(!p)return`<div class="seat empty" style="left:${l}%;top:${t-50}px">${me&&me.seat<0?`<button class="sit-btn" data-sit="${i}">Sit here</button>`:'<div class="open">Open seat</div>'}</div>`;
+ const v=p.cards.length?hv(p.cards).t:null,turn=V.phase==='playing'&&V.turn===i,mine=id===MP.myId;
+ return`<div class="seat ${turn?'turn':''} ${mine?'mine':''}" style="left:${l}%;top:${t-130}px">${p.res?`<span class="res ${p.res}">${p.res.toUpperCase()}</span>`:''}<div class="hand">${p.cards.map(cardHTML).join('')}</div>${v!==null?`<span class="hv">${v}</span>`:''}<div class="who">${avHTML(p,'sm')}<span>${esc(p.name)}${id==='host'?' 👑':''}</span></div>${p.bet?`<span class="betc">${fmt(p.bet)}</span>`:'<span class="betc" style="opacity:.5">No bet</span>'}${turn?`<span class="tmr">${V.turnT}s</span>`:''}${p.online===false?'<span class="off">Disconnected</span>':''}</div>`}
+function mpRender(){const V=MP&&MP.V;if(!V||!$('#mpTable'))return;fitTables();const me=mpMe();
+ $('#mpName').textContent=V.name;$('#mpSub').textContent=`Minimum bet ${fmt(V.minBet)} · ${Object.keys(V.players).length} at the table · Hand #${V.round}`;
+ $('#mpDealer').innerHTML=`<span class="dl">Dealer</span><div class="hand">${V.dealer.map(cardHTML).join('')}</div>${V.dealer.length?`<span class="hv">${hv(V.dealer).t}</span>`:''}`;
+ $('#mpSeats').innerHTML=V.seats.map((id,i)=>mpSeatHTML(id,i,V,me)).join('');
+ $('#mpMsg').textContent=V.msg;
+ const tm=V.phase==='betting'&&V.seats.some(Boolean)?[V.t,BET_T]:V.phase==='playing'?[V.turnT,TURN_T]:null;
+ $('#mpTimer').textContent=tm?Math.max(0,tm[0])+'s':V.phase==='settle'?'Hand over':'';$('#mpTimer').classList.toggle('hidden',!$('#mpTimer').textContent);$('#mpBar').style.width=tm?Math.max(0,tm[0])/tm[1]*100+'%':'0%';
+ const myTurn=me&&V.phase==='playing'&&V.seats[V.turn]===MP.myId;const anyBet=V.seats.some(x=>x&&V.players[x].bet>0);
+ const sig=[V.phase,me?me.seat:'x',me?me.bet:0,myTurn,me?me.cards.length:0,anyBet,MP.role].join('|');
+ if(sig!==MP.ctlSig){MP.ctlSig=sig;let h='';
+  if(!me||me.seat<0)h=`<p class="muted">You are watching. Pick an open seat on the table to play the next hand.</p>`;
+  else if(myTurn)h=`<div class="row"><button class="btn btn-green btn-lg" data-a="hit" style="flex:1">Hit</button><button class="btn btn-red btn-lg" data-a="stand" style="flex:1">Stand</button><button class="btn btn-lg" data-a="double" style="flex:1" ${me.cards.length!==2||U().balance<me.bet?'disabled':''}>Double</button></div>`;
+  else if(V.phase==='betting'&&!me.bet)h=`<div class="row" style="align-items:flex-end"><div style="flex:1;min-width:220px">${betBox('mpBet',Math.max(V.minBet,1000))}</div><button class="btn btn-gold btn-lg" data-a="bet">Place bet</button><button class="btn btn-lg" data-a="standup">Stand up</button></div>`;
+  else if(V.phase==='betting')h=`<div class="row"><p style="flex:1">Your bet of <b class="gold-t">${fmt(me.bet)}</b> is in. Waiting for the deal.</p></div>`;
+  else if(me.bet&&me.cards.length)h=`<p class="muted">Waiting for the other players and the dealer.</p>`;
+  else h=`<p class="muted">You sit this hand out. Bet when the next round opens.</p>`;
+  if(MP.role==='host'&&V.phase==='betting'&&anyBet)h+=`<div class="row" style="margin-top:12px"><button class="btn btn-sm" data-a="deal">Deal now</button><span class="muted" style="font-size:12px">Host control. Starts the hand without waiting for the timer.</span></div>`;
+  $('#mpCtl').innerHTML=h}
+ $('#mpPlayers').innerHTML=Object.values(V.players).sort((a,b)=>(a.seat<0)-(b.seat<0)||a.seat-b.seat).map(p=>`<div class="pl-row">${avHTML(p,'sm')}<div><b>${esc(p.name)}${p.id===MP.myId?' (you)':''}</b><small>${p.id==='host'?'Host · ':''}${p.seat>=0?'Seat '+(p.seat+1):'Watching'}${p.title?' · '+esc(p.title):''}</small></div>${MP.role==='host'&&p.id!=='host'?`<button class="btn btn-sm" data-kick="${esc(p.id)}">Remove</button>`:''}</div>`).join('');
+ const ch=$('#mpChat');const lastT=V.chat.length?V.chat[V.chat.length-1].t+':'+V.chat.length:'0';
+ if(MP.chatN!==lastT){MP.chatN=lastT;ch.innerHTML=V.chat.map(c=>c.sys?`<div class="sysmsg">${esc(c.m)}</div>`:`<div class="cm ${c.id===MP.myId?'self':''}"><div class="bub"><b>${esc(c.n)}<small>${ago(c.t)}</small></b>${esc(c.m)}</div></div>`).join('')||'<p class="empty">Say hi to the table</p>';ch.scrollTop=ch.scrollHeight}}
 
 /* ========== MINES ========== */
 const MN={on:false,mines:new Set(),rev:new Set(),m:3,bet:0,over:false};
@@ -797,60 +1141,77 @@ function hlRender(){if(!$('#hlCard'))return;const r=rankOf(HL.card);$('#hlCard')
 
 /* ========== GRAND PRIX ========== */
 const TEAMS=[
- {n:'Rossa Veloce',d:'L. Marchetti',code:'MAR',c:'#dc2626',c2:'#fbbf24',r:92},
- {n:'Argent Motorsport',d:'K. Varga',code:'VAR',c:'#cbd5e1',c2:'#0ea5e9',r:90},
- {n:'Nordlicht Racing',d:'J. Holm',code:'HOL',c:'#1e40af',c2:'#f59e0b',r:88},
- {n:'Sunburst GP',d:'T. Okafor',code:'OKA',c:'#f97316',c2:'#111827',r:85},
- {n:'Emerald Works',d:'A. Novak',code:'NOV',c:'#059669',c2:'#a7f3d0',r:83},
- {n:'Azure Dynamics',d:'R. Silva',code:'SIL',c:'#2563eb',c2:'#f8fafc',r:81},
- {n:'Noir Performance',d:'E. Laurent',code:'LAU',c:'#27272a',c2:'#d9b25f',r:79},
- {n:'Violet Apex',d:'M. Tanaka',code:'TAN',c:'#7c3aed',c2:'#f472b6',r:76}
-];
-const GP_NAMES=['Prague Night Grand Prix','Monaco Harbour Classic','Silverlake Grand Prix','Desert Lights GP','Alpine Ring Grand Prix','Coastal Sprint GP','Velmont Cup'];
+ {d:'Lando Norris',n:'McLaren',num:1,c:'#FF8000',c2:'#111111',r:94},
+ {d:'Oscar Piastri',n:'McLaren',num:81,c:'#FF8000',c2:'#111111',r:92},
+ {d:'Max Verstappen',n:'Red Bull',num:3,c:'#1E3A8A',c2:'#E11D2E',r:95},
+ {d:'Isack Hadjar',n:'Red Bull',num:6,c:'#1E3A8A',c2:'#E11D2E',r:85},
+ {d:'Charles Leclerc',n:'Ferrari',num:16,c:'#DC0000',c2:'#FFD700',r:91},
+ {d:'Lewis Hamilton',n:'Ferrari',num:44,c:'#DC0000',c2:'#FFD700',r:89},
+ {d:'George Russell',n:'Mercedes',num:63,c:'#00D2BE',c2:'#111111',r:92},
+ {d:'Kimi Antonelli',n:'Mercedes',num:12,c:'#00D2BE',c2:'#111111',r:88},
+ {d:'Fernando Alonso',n:'Aston Martin',num:14,c:'#006F62',c2:'#CEDC00',r:86},
+ {d:'Lance Stroll',n:'Aston Martin',num:18,c:'#006F62',c2:'#CEDC00',r:80},
+ {d:'Alex Albon',n:'Williams',num:23,c:'#1868DB',c2:'#FFFFFF',r:84},
+ {d:'Carlos Sainz',n:'Williams',num:55,c:'#1868DB',c2:'#FFFFFF',r:86},
+ {d:'Pierre Gasly',n:'Alpine',num:10,c:'#FF87BC',c2:'#0055A5',r:83},
+ {d:'Franco Colapinto',n:'Alpine',num:43,c:'#FF87BC',c2:'#0055A5',r:79},
+ {d:'Esteban Ocon',n:'Haas',num:31,c:'#B6BABD',c2:'#E10600',r:81},
+ {d:'Oliver Bearman',n:'Haas',num:87,c:'#B6BABD',c2:'#E10600',r:82},
+ {d:'Liam Lawson',n:'Racing Bulls',num:30,c:'#6692FF',c2:'#FFFFFF',r:81},
+ {d:'Arvid Lindblad',n:'Racing Bulls',num:41,c:'#6692FF',c2:'#FFFFFF',r:79},
+ {d:'Nico Hulkenberg',n:'Audi',num:27,c:'#A3A9B0',c2:'#B91C1C',r:82},
+ {d:'Gabriel Bortoleto',n:'Audi',num:5,c:'#A3A9B0',c2:'#B91C1C',r:81},
+ {d:'Sergio Perez',n:'Cadillac',num:11,c:'#1F2937',c2:'#C9A227',r:78},
+ {d:'Valtteri Bottas',n:'Cadillac',num:77,c:'#1F2937',c2:'#C9A227',r:78}
+].map(t=>({...t,code:t.d.split(' ').pop().slice(0,3).toUpperCase(),last:t.d.split(' ').pop()}));
+const GP_NAMES=['Monaco Grand Prix','British Grand Prix','Italian Grand Prix','Japanese Grand Prix','Las Vegas Grand Prix','Sao Paulo Grand Prix','Abu Dhabi Grand Prix','Austrian Grand Prix','Belgian Grand Prix','Singapore Grand Prix'];
 const LAPS=3,RC_T=30;
-function simRace(keep){const N=TEAMS.length,d=new Float64Array(N),nz=new Float64Array(N),fin=[],done=new Uint8Array(N),frames=keep?[]:null;
- const inc=TEAMS.map(()=>Math.random()<.06?{at:ri(30,200),len:ri(15,45)}:null);let tick=0;
+function makeGrid(){return TEAMS.map((t,i)=>({i,q:t.r+gauss()*2.5})).sort((a,b)=>b.q-a.q).map(x=>x.i)}
+function simRace(keep,grid=makeGrid()){const N=TEAMS.length,d=new Float64Array(N),nz=new Float64Array(N),fin=[],done=new Uint8Array(N),frames=keep?[]:null;
+ grid.forEach((i,p)=>d[i]=-p*.0016);
+ const inc=TEAMS.map(()=>Math.random()<.05?{at:ri(30,200),len:ri(15,45)}:null);let tick=0;
  while(fin.length<N&&tick<3000){for(let i=0;i<N;i++){if(done[i])continue;nz[i]=nz[i]*.97+gauss()*.08;let sp=.0042*(1+(TEAMS[i].r-84)*.003+nz[i]*.5);if(inc[i]&&tick>=inc[i].at&&tick<inc[i].at+inc[i].len)sp*=.2;d[i]=Math.min(1,d[i]+Math.max(.0008,sp));if(d[i]>=1){done[i]=1;fin.push(i)}}if(keep)frames.push(Array.from(d));tick++}
  return{frames,order:fin,inc}}
-const ODDS=(()=>{const N=TEAMS.length,w=new Array(N).fill(0),p=new Array(N).fill(0),S=1500;for(let s=0;s<S;s++){const o=simRace(false).order;w[o[0]]++;for(let k=0;k<3;k++)p[o[k]]++}return TEAMS.map((_,i)=>({win:Math.max(1.15,+(.92/Math.max(w[i]/S,.01)).toFixed(2)),pod:Math.max(1.05,+(.92/Math.max(p[i]/S,.02)).toFixed(2))}))})();
-const RC={phase:'bet',t:RC_T,bets:[],bots:[],sim:null,frame:0,lights:0,last:null,name:pick(GP_NAMES),iv:null};
-function rcTick(){if(RC.phase!=='bet')return;RC.t--;if(Math.random()<.4){const i=ri(0,TEAMS.length-1);RC.bots.push({n:pick(BOTS),team:i,type:Math.random()<.7?'win':'pod',amt:pick([500,1000,2500,5000,10000])})}if(RC.t<=0)rcStart();rcUpdate()}
-async function rcStart(){RC.phase='lights';RC.lights=0;rcUpdate();for(let i=1;i<=5;i++){await sleep(550);RC.lights=i;rcUpdate()}await sleep(rnd(400,1100));RC.lights=6;RC.phase='race';RC.sim=simRace(true);RC.frame=0;rcUpdate();
+const ODDS=(()=>{const N=TEAMS.length,w=new Array(N).fill(0),p=new Array(N).fill(0),S=1200;for(let s=0;s<S;s++){const o=simRace(false).order;w[o[0]]++;for(let k=0;k<3;k++)p[o[k]]++}return TEAMS.map((_,i)=>({win:Math.min(150,Math.max(1.5,+(.92/Math.max(w[i]/S,.004)).toFixed(2))),pod:Math.min(60,Math.max(1.1,+(.92/Math.max(p[i]/S,.012)).toFixed(2)))}))})();
+const RC={phase:'bet',t:RC_T,bets:[],bots:[],sim:null,frame:0,lights:0,last:null,name:pick(GP_NAMES),iv:null,grid:makeGrid(),sig:''};
+function rcTick(){if(RC.phase!=='bet')return;RC.t--;if(Math.random()<.45){const i=ri(0,TEAMS.length-1);RC.bots.push({n:pick(BOTS),team:i,type:Math.random()<.7?'win':'pod',amt:pick([500,1000,2500,5000,10000])})}if(RC.t<=0)rcStart();rcUpdate()}
+async function rcStart(){RC.phase='lights';RC.lights=0;rcUpdate();for(let i=1;i<=5;i++){await sleep(550);RC.lights=i;rcUpdate()}await sleep(rnd(400,1100));RC.lights=6;RC.phase='race';RC.sim=simRace(true,RC.grid);RC.frame=0;rcUpdate();
  RC.iv=setInterval(()=>{RC.frame++;if(RC.frame>=RC.sim.frames.length-1){clearInterval(RC.iv);RC.frame=RC.sim.frames.length-1;rcFinish()}rcFrame()},55)}
 function rcFinish(){const o=RC.sim.order;RC.phase='result';RC.last={order:o,name:RC.name};
  if(RC.bets.length&&ME){let st=0,ret=0;for(const b of RC.bets){st+=b.amt;const pos=o.indexOf(b.team);if(b.type==='win'&&pos===0){ret+=b.amt*b.odds;quest('race_win',1)}if(b.type==='pod'&&pos<3)ret+=b.amt*b.odds}
   if(ret>0){const p=pay(ret,'races');toast(`${TEAMS[o[0]].d} wins the ${RC.name}. You collect ${fmt(p)}`,'win');log('game',`Grand Prix: ${RC.name}, won`,p-st)}else{toast(`${TEAMS[o[0]].d} wins the ${RC.name}. Your bets did not land`,'lose');log('game',`Grand Prix: ${RC.name}, lost`,-st)}save()}
- rcUpdate();setTimeout(()=>{RC.phase='bet';RC.t=RC_T;RC.bets=[];RC.bots=[];RC.sim=null;RC.lights=0;RC.name=pick(GP_NAMES.filter(n=>n!==RC.name));rcUpdate(true)},9000)}
+ rcUpdate();setTimeout(()=>{RC.phase='bet';RC.t=RC_T;RC.bets=[];RC.bots=[];RC.sim=null;RC.lights=0;RC.grid=makeGrid();RC.name=pick(GP_NAMES.filter(n=>n!==RC.name));rcUpdate()},9000)}
 const carSVG=(c,c2)=>`<svg viewBox="0 0 160 46" class="car"><ellipse cx="80" cy="41" rx="72" ry="3" fill="rgba(0,0,0,.35)"/><rect x="4" y="12" width="14" height="16" rx="2" fill="${c2}"/><rect x="4" y="10" width="20" height="4" rx="1" fill="${c}"/><path d="M14 30 L30 24 L58 22 L66 12 L82 12 L92 22 L130 23 L150 27 L154 31 L14 33 Z" fill="${c}"/><path d="M58 22 L66 14 L80 14 L88 22Z" fill="#0b0b0b"/><path d="M30 27 L128 26" stroke="${c2}" stroke-width="2.5"/><rect x="140" y="31" width="18" height="4" rx="1" fill="${c2}"/><circle cx="34" cy="33" r="9" fill="#111" stroke="#2c2c2c" stroke-width="3"/><circle cx="128" cy="33" r="8" fill="#111" stroke="#2c2c2c" stroke-width="3"/><circle cx="34" cy="33" r="3" fill="${c2}"/><circle cx="128" cy="33" r="3" fill="${c2}"/></svg>`;
 const TRACK='M90 260 C60 260 40 230 52 200 L110 80 C125 48 165 40 190 62 L250 118 C268 134 292 132 306 112 L352 54 C372 30 420 32 434 64 L470 150 C482 180 520 186 548 170 L600 140 C640 118 676 150 668 192 L652 262 C644 296 610 310 580 300 L420 268 C392 262 370 270 352 284 L320 306 C296 322 262 318 246 296 L224 268 C212 252 192 246 172 252 Z';
-VIEWS.races=()=>{$('#view').innerHTML=`
- <div class="page-head"><div><span class="eyebrow">Live racing</span><h1>Grand Prix</h1><p id="rcName"></p></div><span class="live-pill"><span class="dot"></span><span id="rcState"></span></span></div>
- <div class="rc-top"><div class="card" style="padding:14px"><div class="circuit"><svg viewBox="0 0 720 360" id="rcSvg"><path d="${TRACK}" fill="none" stroke="#0a0d0b" stroke-width="34" stroke-linejoin="round"/><path d="${TRACK}" fill="none" stroke="#2b2f36" stroke-width="28" stroke-linejoin="round"/><path d="${TRACK}" fill="none" stroke="#e5484d" stroke-width="30" stroke-dasharray="8 8" stroke-linejoin="round" opacity=".55" style="mix-blend-mode:screen"/><path d="${TRACK}" fill="none" stroke="#30353d" stroke-width="24" stroke-linejoin="round"/><path id="rcPath" d="${TRACK}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1" stroke-dasharray="6 10"/><g id="rcStart"></g><g id="rcCars"></g></svg><div class="lights" id="rcLights">${'<i></i>'.repeat(5)}</div><div class="rc-banner" id="rcLap"></div></div></div>
- <div class="card"><h3>Live timing</h3><div class="tower" id="rcTower"></div></div></div>
+VIEWS.races=()=>{RC.sig='';$('#view').innerHTML=`
+ <div class="page-head"><div><span class="eyebrow">Live racing · 2026 grid</span><h1>Grand Prix</h1><p id="rcName"></p></div><span class="live-pill"><span class="dot"></span><span id="rcState"></span></span></div>
+ <div class="rc-top"><div class="card" style="padding:14px"><div class="circuit"><svg viewBox="0 0 720 360" id="rcSvg"><path d="${TRACK}" fill="none" stroke="#0a0d0b" stroke-width="34" stroke-linejoin="round"/><path d="${TRACK}" fill="none" stroke="#e5484d" stroke-width="30" stroke-dasharray="8 8" stroke-linejoin="round" opacity=".55"/><path d="${TRACK}" fill="none" stroke="#30353d" stroke-width="24" stroke-linejoin="round"/><path id="rcPath" d="${TRACK}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1" stroke-dasharray="6 10"/><g id="rcStart"></g><g id="rcCars"></g></svg><div class="lights" id="rcLights">${'<i></i>'.repeat(5)}</div><div class="rc-banner" id="rcLap"></div></div></div>
+ <div class="card"><h3>Live timing</h3><div class="tower" id="rcTower" style="max-height:440px;overflow-y:auto"></div></div></div>
  <div id="rcResult"></div>
  <div class="grid" style="grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:18px" id="rcLow"><div class="card"><div class="row" style="justify-content:space-between;margin-bottom:16px"><h3 style="margin:0">Place your bets</h3><div style="min-width:260px">${betBox('rcBet',1000)}</div></div><div class="teams" id="rcTeams"></div></div>
  <div class="stack"><div class="card"><h3>Your bets</h3><div id="rcMy"></div></div><div class="card"><h3>Paddock bets</h3><div class="feed" id="rcFeed"></div></div></div></div>`;
  if(innerWidth<1180)$('#rcLow').style.gridTemplateColumns='1fr';
  const path=$('#rcPath'),p0=path.getPointAtLength(0),p1=path.getPointAtLength(4),ang=Math.atan2(p1.y-p0.y,p1.x-p0.x)*180/Math.PI;
  $('#rcStart').innerHTML=`<g transform="translate(${p0.x},${p0.y}) rotate(${ang+90})"><rect x="-14" y="-3" width="28" height="6" fill="#fff"/><rect x="-14" y="-3" width="7" height="3" fill="#111"/><rect x="0" y="-3" width="7" height="3" fill="#111"/><rect x="-7" y="0" width="7" height="3" fill="#111"/><rect x="7" y="0" width="7" height="3" fill="#111"/></g>`;
- $('#rcCars').innerHTML=TEAMS.map((t,i)=>`<g id="car${i}"><circle r="9" fill="${t.c}" stroke="${t.c2}" stroke-width="2.5"/><text text-anchor="middle" dy="3.5" font-size="8" font-weight="800" fill="${t.c2}" font-family="Inter">${i+1}</text></g>`).join('');
+ $('#rcCars').innerHTML=TEAMS.map((t,i)=>`<g id="car${i}"><circle r="8" fill="${t.c}" stroke="${t.c2}" stroke-width="2"/><text text-anchor="middle" dy="2.6" font-size="7" font-weight="800" fill="${t.c2}" font-family="Inter,Arial">${t.num}</text></g>`).join('');
  $('#rcTeams').onclick=e=>{const b=e.target.closest('[data-bt]');if(!b)return;if(RC.phase!=='bet')return toast('Betting is closed for this race','err');const amt=Math.floor(+$('#rcBet').value),team=+b.dataset.team,type=b.dataset.bt;if(!takeBet(amt,'races'))return;RC.bets.push({team,type,amt,odds:ODDS[team][type]});quest('race_bet',1);persist();toast(`Bet placed: ${fmt(amt)} on ${TEAMS[team].d} to ${type==='win'?'win':'finish on the podium'}`,'gold');rcUpdate()};
- rcUpdate(true)};
-function rcPos(i,d){const path=$('#rcPath');if(!path)return null;const L=path.getTotalLength(),lap=d*LAPS,f=lap-Math.floor(lap);const off=(i%4-1.5)*0;return path.getPointAtLength((d>=1?0:f)*L+off)}
-function rcFrame(){if(!$('#rcSvg'))return;const fr=RC.sim?RC.sim.frames[RC.frame]:TEAMS.map((_,i)=>-i*.004);
- const order=TEAMS.map((_,i)=>i).sort((a,b)=>fr[b]-fr[a]||(RC.sim?RC.sim.order.indexOf(a)-RC.sim.order.indexOf(b):0));
- if(RC.phase==='result'&&RC.sim)order.splice(0,order.length,...RC.sim.order);
- TEAMS.forEach((t,i)=>{let d=fr[i];if(!RC.sim){const grid=order.indexOf(i);d=-(grid+1)*.006}const path=$('#rcPath'),L=path.getTotalLength();let len;if(d<0)len=L+d*L;else{const lap=d*LAPS;len=(d>=1?0:(lap-Math.floor(lap)))*L}const p=path.getPointAtLength(((len%L)+L)%L);const g=$('#car'+i);if(g)g.setAttribute('transform',`translate(${p.x},${p.y})`)});
- const lead=Math.max(...fr);const lap=RC.sim?Math.min(LAPS,Math.floor(lead*LAPS)+1):1;$('#rcLap').textContent=RC.phase==='result'?'CHEQUERED FLAG':RC.phase==='race'?`LAP ${lap} / ${LAPS}`:'GRID';
+ rcUpdate()};
+function rcFrame(){if(!$('#rcSvg'))return;const path=$('#rcPath'),L=path.getTotalLength();
+ const fr=RC.sim?RC.sim.frames[RC.frame]:(()=>{const a=new Array(TEAMS.length);RC.grid.forEach((i,p)=>a[i]=-p*.0016);return a})();
+ let order=TEAMS.map((_,i)=>i).sort((a,b)=>fr[b]-fr[a]);
+ if(RC.phase==='result'&&RC.sim)order=[...RC.sim.order];
+ TEAMS.forEach((t,i)=>{const d=fr[i],lap=d*LAPS,f=lap-Math.floor(lap);const p=path.getPointAtLength(d>=1?0:f*L);const g=$('#car'+i);if(g)g.setAttribute('transform',`translate(${p.x},${p.y})`)});
+ const lead=Math.max(...fr);const lap=RC.sim?Math.max(1,Math.min(LAPS,Math.floor(lead*LAPS)+1)):1;$('#rcLap').textContent=RC.phase==='result'?'CHEQUERED FLAG':RC.phase==='race'?`LAP ${lap} / ${LAPS}`:'STARTING GRID';
  const mine=new Set(RC.bets.map(b=>b.team));
- $('#rcTower').innerHTML=order.map((i,p)=>{const t=TEAMS[i],gap=p===0?(RC.phase==='race'?'Leader':RC.phase==='result'?'Winner':'Pole'):RC.sim&&RC.phase==='race'?'+'+((lead-fr[i])/.0042*.32).toFixed(3):RC.phase==='result'?'P'+(p+1):'';const out=RC.sim&&RC.sim.inc[i]&&RC.frame>=RC.sim.inc[i].at&&RC.frame<RC.sim.inc[i].at+RC.sim.inc[i].len;return`<div class="tw-row ${p===0?'p1':''} ${mine.has(i)?'mine':''}"><span class="ps">${p+1}</span><span class="cl" style="background:${t.c}"></span><span><b>${t.code}</b> <span class="muted" style="font-size:12px">${t.n}</span></span><span class="gp">${out?'<span class="redt">PIT</span>':gap}</span></div>`}).join('')}
-function rcUpdate(full){if(!$('#rcSvg'))return;
- $('#rcName').textContent=`${RC.name} · ${LAPS} laps · 8 cars`;
+ $('#rcTower').innerHTML=order.map((i,p)=>{const t=TEAMS[i];let gap='';if(p===0)gap=RC.phase==='race'?'Leader':RC.phase==='result'?'Winner':'Pole';else if(RC.sim&&RC.phase==='race')gap='+'+((lead-fr[i])/.0042*.32).toFixed(3);else if(RC.phase==='result')gap='P'+(p+1);const out=RC.sim&&RC.sim.inc[i]&&RC.frame>=RC.sim.inc[i].at&&RC.frame<RC.sim.inc[i].at+RC.sim.inc[i].len;return`<div class="tw-row ${p===0?'p1':''} ${mine.has(i)?'mine':''}"><span class="ps">${p+1}</span><span class="cl" style="background:${t.c}"></span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><b>${t.code}</b> <span class="muted" style="font-size:12px">${t.last} · ${t.n}</span></span><span class="gp">${out?'<span class="redt">PIT</span>':gap}</span></div>`}).join('')}
+function rcUpdate(){if(!$('#rcSvg'))return;
+ $('#rcName').textContent=`${RC.name} · ${LAPS} laps · ${TEAMS.length} cars`;
  $('#rcState').textContent=RC.phase==='bet'?`Lights out in ${RC.t}s`:RC.phase==='lights'?'Formation complete':RC.phase==='race'?'Race in progress':'Race finished';
- const L=$('#rcLights');L.classList.toggle('go',RC.lights===6);L.style.display=RC.phase==='lights'||(RC.phase==='race'&&RC.frame<25)?'flex':'none';$$('#rcLights i').forEach((x,i)=>x.classList.toggle('on',RC.lights>i&&RC.lights<6));
- if(full||!$('#rcTeams').children.length||RC.phase!=='bet'||true){$('#rcTeams').innerHTML=TEAMS.map((t,i)=>`<div class="team" style="--tc:${t.c}"><div class="row" style="justify-content:space-between"><div><h4>${t.d}</h4><small>${t.n} · #${i+1}</small></div><span class="tag gold">${t.code}</span></div>${carSVG(t.c,t.c2)}<div class="rt">Pace<div class="bar"><i style="width:${(t.r-60)*2.5}%"></i></div>${t.r}</div><div class="odds"><button data-bt="win" data-team="${i}" ${RC.phase!=='bet'?'disabled':''}><small>Win</small>${ODDS[i].win.toFixed(2)}×</button><button data-bt="pod" data-team="${i}" ${RC.phase!=='bet'?'disabled':''}><small>Podium</small>${ODDS[i].pod.toFixed(2)}×</button></div></div>`).join('')}
+ const Lg=$('#rcLights');Lg.classList.toggle('go',RC.lights===6);Lg.style.display=RC.phase==='lights'||(RC.phase==='race'&&RC.frame<25)?'flex':'none';$$('#rcLights i').forEach((x,i)=>x.classList.toggle('on',RC.lights>i&&RC.lights<6));
+ const sig=RC.phase==='bet'?'open':'closed';
+ if(RC.sig!==sig){RC.sig=sig;const gp=new Map(RC.grid.map((i,p)=>[i,p+1]));$('#rcTeams').innerHTML=TEAMS.map((t,i)=>`<div class="team" style="--tc:${t.c}"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><div style="min-width:0"><h4>${t.d}</h4><small>${t.n} · #${t.num}</small></div><span class="tag gold">P${gp.get(i)}</span></div>${carSVG(t.c,t.c2)}<div class="rt">Pace<div class="bar"><i style="width:${(t.r-60)*2.5}%"></i></div>${t.r}</div><div class="odds"><button data-bt="win" data-team="${i}" ${RC.phase!=='bet'?'disabled':''}><small>Win</small>${ODDS[i].win.toFixed(2)}×</button><button data-bt="pod" data-team="${i}" ${RC.phase!=='bet'?'disabled':''}><small>Podium</small>${ODDS[i].pod.toFixed(2)}×</button></div></div>`).join('')}
  $('#rcMy').innerHTML=RC.bets.length?RC.bets.map(b=>{const t=TEAMS[b.team];let st='';if(RC.phase==='result'){const pos=RC.sim.order.indexOf(b.team);const w=b.type==='win'?pos===0:pos<3;st=w?'<span class="w">WIN</span>':'<span class="tag red">Lost</span>'}return`<div class="fi"><span class="cl" style="width:5px;height:30px;border-radius:2px;background:${t.c}"></span><div><b>${t.d}</b><small>${b.type==='win'?'To win':'Podium'} · ${b.odds.toFixed(2)}×</small></div><span class="amt">${fmt(b.amt)}</span>${st}</div>`}).join(''):'<p class="empty">No bets yet. Pick a driver to back.</p>';
- $('#rcFeed').innerHTML=RC.bots.slice(-7).reverse().map(b=>`<div class="fi">${botAv(b.n)}<div><b>${b.n}</b><small>${TEAMS[b.team].code} · ${b.type==='win'?'Win':'Podium'}</small></div><span class="amt">${fmt(b.amt)}</span></div>`).join('')||'<p class="empty">The paddock is quiet</p>';
+ $('#rcFeed').innerHTML=RC.bots.slice(-7).reverse().map(b=>`<div class="fi">${botAv(b.n)}<div><b>${b.n}</b><small>${TEAMS[b.team].d} · ${b.type==='win'?'Win':'Podium'}</small></div><span class="amt">${fmt(b.amt)}</span></div>`).join('')||'<p class="empty">The paddock is quiet</p>';
  const R=$('#rcResult');if(RC.phase==='result'&&RC.sim){const o=RC.sim.order;R.innerHTML=`<div class="card" style="margin-top:18px"><h3>Podium · ${RC.name}</h3><div class="podium">${[1,0,2].map(k=>{const t=TEAMS[o[k]];return`<div class="p${k+1}"><b style="font-size:22px">P${k+1}</b><div style="width:14px;height:14px;border-radius:50%;background:${t.c};margin:8px auto"></div><b>${t.d}</b><br><small class="muted">${t.n}</small></div>`}).join('')}</div></div>`}else R.innerHTML='';
  rcFrame()}
 
@@ -936,7 +1297,7 @@ VIEWS.messages=()=>{const u=U();const others=Object.keys(USERS).filter(k=>k!==ME
   $$('[data-mail]').forEach(el=>el.onclick=()=>{const m=u.inbox.find(x=>String(x.id)===el.dataset.mail);if(m&&!m.read){m.read=true;el.classList.remove('unread');save()}});
   const ra=$('#readAll');if(ra)ra.onclick=()=>{u.inbox.forEach(m=>m.read=true);save();VIEWS.messages()}}
  if(MSG_TAB==='dm'){B.innerHTML=`<div class="grid g2"><div class="card stack"><h3>Send a message</h3>${others.length?`<div class="field"><label>To</label><select id="dmTo">${others.map(k=>`<option value="${k}">${esc(USERS[k].d.display)}</option>`).join('')}</select></div><div class="field"><label>Subject</label><input id="dmS" maxlength="60"></div><div class="field"><label>Message</label><textarea id="dmB" maxlength="600"></textarea></div><button class="btn btn-gold" id="dmGo">Send message</button>`:'<p class="muted">No other members on this device yet. Create a second account to send private messages.</p>'}</div><div class="card"><h3>Sent</h3>${u.sent.length?u.sent.slice(0,10).map(m=>`<div class="mail"><div class="mh"><span>To ${esc(m.to)}</span><span>${ago(m.t)}</span></div><h5>${esc(m.subj)}</h5><p>${esc(m.body)}</p></div>`).join(''):'<p class="empty">Nothing sent yet</p>'}</div></div>`;
-  const g=$('#dmGo');if(g)g.onclick=()=>{const to=$('#dmTo').value,s=$('#dmS').value.trim()||'(no subject)',b=$('#dmB').value.trim();if(!b)return toast('Write a message first','err');USERS[to].d.inbox.unshift({id:Date.now()+Math.random(),from:u.display,subj:s,body:b,t:Date.now(),read:false});u.sent.unshift({to:USERS[to].d.display,subj:s,body:b,t:Date.now()});log('message',`Sent a message to ${USERS[to].d.display}`);save();toast('Message sent','win');VIEWS.messages()}}};
+  const g=$('#dmGo');if(g)g.onclick=()=>{const to=$('#dmTo').value,s=$('#dmS').value.trim()||'(no subject)',b=$('#dmB').value.trim();if(!b)return toast('Write a message first','err');USERS[to].d.inbox.unshift({id:Date.now()+Math.random(),from:u.display,subj:s,body:b,t:Date.now(),read:false});persist([to]);u.sent.unshift({to:USERS[to].d.display,subj:s,body:b,t:Date.now()});log('message',`Sent a message to ${USERS[to].d.display}`);save();toast('Message sent','win');VIEWS.messages()}}};
 function renderChat(){const b=$('#chatBox');if(!b)return;if(CHAT.length<6)for(let i=0;i<8;i++)CHAT.unshift({n:pick(BOTS),m:pick(CHAT_LINES),t:Date.now()-(i+1)*60000,bot:1});
  b.innerHTML=CHAT.slice(-50).map(c=>{const self=c.me===ME;const av=c.bot?botAv(c.n):`<div class="av sm f-${c.f||'none'}" style="--avc:${c.c||'#2a2f3d'}">${c.av||'🙂'}</div>`;return`<div class="cm ${self?'self':''}">${av}<div class="bub"><b>${esc(c.n)}<small>${ago(c.t)}</small></b>${esc(c.m)}</div></div>`}).join('');b.scrollTop=b.scrollHeight}
 
@@ -973,7 +1334,7 @@ VIEWS.activity=()=>{const u=U();const types=[['all','All'],['game','Games'],['re
 /* ========== boot ========== */
 let LOOPS=false;
 function startLoops(){if(LOOPS)return;LOOPS=true;setInterval(rlTick,1000);setInterval(rcTick,1000);setInterval(wheelTimerUI,1000);setInterval(feedTick,4000);setInterval(chatBotTick,8000);setInterval(checkLoans,30000)}
-(function boot(){let s=null;try{s=localStorage.getItem('vm_session')}catch(e){}if(s&&USERS[s]){ME=s;U().lastLogin=Date.now();log('account','Session restored');persist();enter()}else renderAuth()})();
+(function boot(){let s=null;try{s=sessionStorage.getItem('vm_session')||localStorage.getItem('vm_session')}catch(e){}if(s&&USERS[s]){ME=s;U().lastLogin=Date.now();log('account','Session restored');persist();enter()}else renderAuth()})();
 </script>
 </body>
 </html>
