@@ -509,6 +509,87 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .tabs.sm button{padding:5px 11px;font-size:12px}
 .team .car{height:auto;aspect-ratio:300/84}
 @media (max-width:1180px){.rc-top{grid-template-columns:1fr!important}.tower{max-height:420px}}
+
+/* ===== polish layer ===== */
+::selection{background:rgba(217,178,95,.35);color:#fff}
+*{scrollbar-width:thin;scrollbar-color:#2a2f3d transparent}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#232837;border-radius:10px;border:3px solid var(--bg)}::-webkit-scrollbar-track{background:transparent}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.app,#auth{position:relative;z-index:1}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,0) 40%),linear-gradient(180deg,#131824,#0d1119);border:1px solid rgba(255,255,255,.065);box-shadow:0 1px 0 rgba(255,255,255,.045) inset,0 24px 60px rgba(0,0,0,.38)}
+.card h3{display:flex;align-items:center;gap:10px}
+.card h3::before{content:"";width:14px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold2),var(--gold3))}
+.page-head h1{background:linear-gradient(180deg,#fff,#d8d3c7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.page-head .eyebrow{display:inline-flex;align-items:center;gap:10px}
+.page-head .eyebrow::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.sec{display:flex;align-items:center;gap:14px}
+.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(217,178,95,.28),transparent)}
+.row>.sec::after{display:none}
+.top{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,transparent,rgba(217,178,95,.35),transparent) 1}
+.side{background:radial-gradient(400px 300px at 0 0,rgba(217,178,95,.07),transparent 60%),linear-gradient(180deg,#0b0e15,#07090d)}
+.side .logo{padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.05)}
+.nav a{position:relative;overflow:hidden}
+.nav a.on{background:linear-gradient(90deg,rgba(217,178,95,.17),rgba(217,178,95,.02))}
+.nav a.on svg{filter:drop-shadow(0 0 6px rgba(217,178,95,.55))}
+.nav a .pill{position:relative;padding-left:15px}.nav a .pill::before{content:"";position:absolute;left:6px;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+.btn{transition:transform .12s,filter .15s,border-color .15s,box-shadow .2s,background .2s}
+.btn:not(:disabled):hover{transform:translateY(-1px)}
+.btn-gold{position:relative;overflow:hidden}
+.btn-gold::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .6s ease}
+.btn-gold:not(:disabled):hover::after{left:130%}
+.btn-gold:not(:disabled):hover{box-shadow:0 12px 30px rgba(217,178,95,.32),inset 0 1px 0 rgba(255,255,255,.55)}
+input,select,textarea{background:#0a0d14;border-color:rgba(255,255,255,.08);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(217,178,95,.12)}
+.hero{background:radial-gradient(600px 300px at 90% 10%,rgba(217,178,95,.22),transparent 60%),radial-gradient(500px 300px at 70% 120%,rgba(14,90,60,.55),transparent 60%),repeating-linear-gradient(135deg,rgba(217,178,95,.035) 0 1px,transparent 1px 22px),linear-gradient(135deg,#141824,#0b0e15)}
+.hero::after{content:"";position:absolute;left:44px;right:44px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(246,221,148,.7),transparent)}
+.stat{position:relative;overflow:hidden;background:linear-gradient(160deg,#141926,#0e121a);transition:border-color .2s,transform .2s}
+.stat::after{content:"";position:absolute;right:-30px;top:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(217,178,95,.12),transparent 70%)}
+.stat:hover{border-color:rgba(217,178,95,.25);transform:translateY(-2px)}
+.gcard::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.55));z-index:0}
+.gcard h4,.gcard small{z-index:1}
+.gcard::after{content:"Play \2192";position:absolute;right:16px;bottom:18px;font-size:12px;font-weight:700;color:var(--gold2);opacity:0;transform:translateX(-6px);transition:.25s;z-index:1}
+.gcard:hover::after{opacity:1;transform:none}
+.item,.quest,.team{transition:border-color .2s,transform .2s,box-shadow .2s}
+.item:hover,.quest:hover{box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.item .ic{box-shadow:0 0 0 4px rgba(217,178,95,.05),0 10px 24px rgba(0,0,0,.35)}
+.tabs button{transition:color .15s,background .15s}
+.toast{border-color:rgba(217,178,95,.18)}
+/* open tables */
+.ot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.ot{display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+.ot:hover{border-color:rgba(217,178,95,.3);transform:translateY(-2px)}
+.ot h4{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut)}.ot-meta b{color:var(--text)}
+.ot-seats{display:flex;gap:6px}.ot-seats i{flex:1;height:6px;border-radius:6px;background:rgba(255,255,255,.07)}.ot-seats i.on{background:linear-gradient(90deg,var(--gold3),var(--gold2))}
+.ot-empty{grid-column:1/-1;text-align:center;padding:34px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ot-empty .spinner{margin:0 auto 6px}
+.solo-card{background:radial-gradient(260px 160px at 85% 15%,rgba(19,118,75,.35),transparent 70%),linear-gradient(180deg,#131824,#0d1119)!important}
+/* promo codes */
+.pc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.promo{position:relative;display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:18px;background:radial-gradient(220px 120px at 100% 0,rgba(217,178,95,.16),transparent 70%),linear-gradient(180deg,#141926,#0d1119);border:1px solid rgba(217,178,95,.2);overflow:hidden;transition:transform .2s,border-color .2s}
+.promo::before,.promo::after{content:"";position:absolute;top:58%;width:22px;height:22px;border-radius:50%;background:var(--bg);border:1px solid rgba(217,178,95,.2)}
+.promo::before{left:-12px}.promo::after{right:-12px}
+.promo:hover{transform:translateY(-2px);border-color:rgba(217,178,95,.4)}
+.promo.done{border-color:rgba(46,204,138,.22);opacity:.78}
+.promo-top{display:flex;justify-content:space-between;align-items:center}
+.promo-amt{font-size:22px;font-weight:800;background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.promo-code{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:12px;border:1.5px dashed rgba(217,178,95,.45);background:rgba(0,0,0,.25)}
+.promo-code span{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:18px;font-weight:700;letter-spacing:.18em;color:#fff}
+.promo-code .copy{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--gold2);background:rgba(217,178,95,.1)}
+.promo-code .copy svg{width:16px;height:16px}
+.promo p{color:var(--mut);font-size:13px;flex:1}
+/* footer */
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:28px;padding:40px 28px 28px;background:linear-gradient(180deg,transparent,rgba(217,178,95,.03));border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,rgba(217,178,95,.3),transparent) 1}
+.foot h5{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.foot a{display:block;color:#8a8fa0;text-decoration:none;padding:4px 0;cursor:pointer;font-size:13px}.foot a:hover{color:#fff}
+.foot .fl{display:flex;align-items:center;gap:10px;margin-bottom:12px}.foot .fl .word{font-family:'Playfair Display',serif;font-size:20px;letter-spacing:.14em;font-weight:700}
+.foot p{line-height:1.6;max-width:360px}
+.foot .fb{grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);font-size:12px}
+.badge18{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid #5d6272;font-size:10px;font-weight:800;color:#8a8fa0;margin-right:8px;vertical-align:middle}
+@media (max-width:980px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+@media (max-width:640px){.promo-code span{font-size:16px}.code-in{flex-direction:column}.code-in input{min-width:0;width:100%}.code-hero{padding:30px 16px}}
+.code-in input{min-width:0}
 </style>
 </head>
 <body>
@@ -520,8 +601,11 @@ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
     <div class="ticker"><div class="ticker-in" id="ticker"></div></div>
     <main id="view"></main>
     <footer class="foot">
-      <div><b>Velmont Casino</b> &copy; 2026. Play money only. No real money wagering, no deposits, no withdrawals. 18+.</div>
-      <div>Race results are simulated. Not affiliated with Formula 1 or its teams.</div>
+      <div><div class="fl"><svg width="30" height="30" viewBox="0 0 40 40"><defs><linearGradient id="flg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dd94"/><stop offset=".5" stop-color="#d9b25f"/><stop offset="1" stop-color="#a3762a"/></linearGradient></defs><path d="M20 2l16 9v18l-16 9-16-9V11z" fill="none" stroke="url(#flg)" stroke-width="1.6"/><path d="M11 13h5l4 11 4-11h5l-7.2 16h-3.6z" fill="url(#flg)"/></svg><span class="word gold-t">VELMONT</span></div><p>A private play money casino club. Live tables with friends worldwide, a full Grand Prix season and daily rewards.</p></div>
+      <div><h5>Casino</h5><a data-go="roulette">Roulette</a><a data-go="blackjack">Blackjack</a><a data-go="slots">Velmont Royale</a><a data-go="races">Grand Prix</a></div>
+      <div><h5>Rewards</h5><a data-go="wheel">Lucky Wheel</a><a data-go="quests">Daily quests</a><a data-go="codes">Promo codes</a><a data-go="shop">Boutique</a></div>
+      <div><h5>Account</h5><a data-go="profile">Profile</a><a data-go="bank">Bank</a><a data-go="messages">Messages</a><a data-go="activity">Activity log</a></div>
+      <div class="fb"><span><span class="badge18">18+</span><b>Velmont Casino</b> &copy; 2026. Play money only. No real money wagering, no deposits, no withdrawals.</span><span>Race results are simulated. Not affiliated with Formula 1 or its teams.</span></div>
     </footer>
   </div>
 </div>
@@ -569,7 +653,8 @@ const I={
  out:'<path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/>',
  menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
- check:'<path d="M5 12l5 5 9-10"/>'
+ check:'<path d="M5 12l5 5 9-10"/>',
+ copy:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>'
 };
 const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
 const LOGO=`<svg width="36" height="36" viewBox="0 0 40 40"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dd94"/><stop offset=".5" stop-color="#d9b25f"/><stop offset="1" stop-color="#a3762a"/></linearGradient></defs><path d="M20 2l16 9v18l-16 9-16-9V11z" fill="none" stroke="url(#lg)" stroke-width="1.6"/><path d="M11 13h5l4 11 4-11h5l-7.2 16h-3.6z" fill="url(#lg)"/></svg>`;
@@ -680,7 +765,7 @@ function renderAuth(){
  };
 }
 function enter(){try{localStorage.setItem('vm_session',ME);sessionStorage.setItem('vm_session',ME)}catch(e){}$('#auth').classList.add('hidden');$('#app').classList.remove('hidden');ensureQuests();checkLoans();renderSide();renderTop();renderTicker();startLoops();const h=(location.hash||'').slice(1);
- if(/^bj=[A-Za-z0-9]{5}$/.test(h)){go('blackjack');mpJoin(h.slice(3));return}
+ if(/^bj=[A-Za-z0-9]{5}(-\d)?$/.test(h)){go('blackjack');mpJoin(h.slice(3));return}
  go(VIEWS[h]?h:'lobby');setTimeout(promoPopup,900)}
 function promoPopup(){const today=new Date().toDateString();try{if(localStorage.getItem('vm_promo_off')===today||sessionStorage.getItem('vm_promo'))return;sessionStorage.setItem('vm_promo','1')}catch(e){}if(!$('#modal').classList.contains('hidden'))return;const wl=wheelLeft();
  modal(`<button class="mx" data-close aria-label="Close">×</button><div class="promo-art"><span class="eyebrow">Tonight at Velmont</span><h2>Private tables are open</h2><p>Create a blackjack table, share the code and play with your friends in real time.</p></div><div class="promo-body"><div class="promo-row">${ic('wheel')}<div><b>Lucky Wheel</b><small>${wl?'Next free spin in '+mmss(wl):'Your free spin is ready'}</small></div></div><div class="promo-row">${ic('flag')}<div><b>Grand Prix</b><small>Back Verstappen, Norris and the full 2026 grid</small></div></div><div class="promo-row">${ic('slots')}<div><b>Velmont Royale</b><small>Jackpot now at ${fmt(JP)}</small></div></div><label class="chk"><input type="checkbox" id="prOff"> Don't show again today</label><div class="row"><button class="btn btn-gold" id="prGo" style="flex:1">Open a table</button><button class="btn" id="prLater">Maybe later</button></div></div>`,'promo-modal');
@@ -833,7 +918,7 @@ function seatHTML(s,i){const[l,t]=SEAT_POS[i];if(!s)return`<div class="seat empt
  const u=s.isMe?U():null,v=s.cards.length?hv(s.cards).t:null;
  return`<div class="seat ${BJ.turn===i?'turn':''} ${s.isMe?'mine':''}" style="left:${l}%;top:${t-130}px">${s.result?`<span class="res ${s.result}">${s.result.toUpperCase()}</span>`:''}<div class="hand">${s.cards.map(cardHTML).join('')}</div>${v!==null?`<span class="hv">${v}</span>`:''}<div class="who">${s.isMe?avHTML(u,'sm'):botAv(s.name)}<span>${s.isMe?esc(u.display):s.name}</span></div>${s.bet?`<span class="betc">${fmt(s.bet)}</span>`:''}</div>`}
 function bjSoloView(){bjInitSeats();$('#view').innerHTML=`
- <div class="page-head"><div><span class="eyebrow">Practice table · Seat 3</span><h1>Blackjack practice</h1><p>Six deck shoe. Dealer stands on all 17s. Blackjack pays 3 to 2.</p></div><button class="btn" id="bjBack">Back to tables</button></div>
+ <div class="page-head"><div><span class="eyebrow">Solo table · Seat 3</span><h1>Solo blackjack</h1><p>Six deck shoe. Dealer stands on all 17s. Blackjack pays 3 to 2.</p></div><button class="btn" id="bjBack">Back to tables</button></div>
  <div class="bj-wrap"><div class="bj-table" id="bjTable"><div class="bj-dealer" id="bjDealer"></div><div class="bj-arc"><b>BLACKJACK PAYS 3 TO 2</b>Dealer must stand on 17 · Insurance not offered</div><div id="bjSeats"></div></div></div>
  <div class="bj-controls"><div class="card"><div class="bj-msg" id="bjMsg"></div><div class="row" style="margin-top:16px"><button class="btn btn-green btn-lg" id="bjHit" style="flex:1">Hit</button><button class="btn btn-red btn-lg" id="bjStand" style="flex:1">Stand</button><button class="btn btn-lg" id="bjDouble" style="flex:1">Double</button></div></div>
  <div class="card stack">${betBox('bjBet',1000)}<button class="btn btn-gold btn-lg btn-block" id="bjDeal">Deal hand</button></div></div>`;
@@ -921,30 +1006,81 @@ async function slSpin(){if(SLT.busy)return;if(!$('#reels')){SLT.auto=0;return}
 
 /* ========== MULTIPLAYER BLACKJACK ========== */
 const NET_LOCAL=new URLSearchParams(location.search).get('net')==='local';
-const PFX='velmont-bj-';
-let PEER_P=null;
-function loadPeer(){if(window.Peer)return Promise.resolve();if(PEER_P)return PEER_P;PEER_P=new Promise((res,rej)=>{const urls=['https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.5/peerjs.min.js','https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js'];let i=0;const next=()=>{if(i>=urls.length)return rej(new Error('load'));const s=document.createElement('script');s.src=urls[i++];s.onload=()=>window.Peer?res():next();s.onerror=()=>{s.remove();next()};document.head.appendChild(s)};next()});PEER_P.catch(()=>{PEER_P=null});return PEER_P}
+/* ===== Worldwide relay: MQTT 3.1.1 over secure WebSocket, no library needed =====
+   Tables run through free public MQTT relays, so players connect from any network in any country. */
+const QS=new URLSearchParams(location.search);
+const BROKERS=QS.get('relay')?[QS.get('relay')]:['wss://broker.emqx.io:8084/mqtt','wss://broker.hivemq.com:8884/mqtt','wss://test.mosquitto.org:8081/mqtt'];
+const TOP='velmont-q7k2/bj/';
+const _te=new TextEncoder(),_td=new TextDecoder();
+const rid=n=>Array.from({length:n},()=>'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random()*36)]).join('');
+function mqStr(s){const b=_te.encode(s),o=new Uint8Array(b.length+2);o[0]=b.length>>8;o[1]=b.length&255;o.set(b,2);return o}
+function mqCat(...a){const n=a.reduce((x,y)=>x+y.length,0),o=new Uint8Array(n);let p=0;for(const x of a){o.set(x,p);p+=x.length}return o}
+function mqPkt(h,body){const rl=[];let x=body.length;do{let d=x%128;x=Math.floor(x/128);if(x>0)d|=128;rl.push(d)}while(x>0);return mqCat(new Uint8Array([h,...rl]),body)}
+class MQ{
+ constructor(url,o){this.url=url;this.o=o;this.onmsg=()=>{};this.onclose=()=>{};this.pid=0;this.buf=new Uint8Array(0);this.subs=[]}
+ connect(timeout=6000){return new Promise((res,rej)=>{let ok=false,ws;try{ws=new WebSocket(this.url,['mqtt'])}catch(e){return rej(e)}this.ws=ws;ws.binaryType='arraybuffer';
+  const tm=setTimeout(()=>{if(!ok){try{ws.close()}catch(e){}rej(new Error('timeout'))}},timeout);
+  this._ack=()=>{ok=true;clearTimeout(tm);this.ping=setInterval(()=>this.raw(new Uint8Array([0xC0,0])),this.o.keepalive*600);res(this)};
+  this._nak=rc=>{clearTimeout(tm);rej(new Error('refused '+rc));try{ws.close()}catch(e){}};
+  ws.onopen=()=>{const o=this.o,w=o.will;let f=0x02;if(w)f|=0x04|(w.retain?0x20:0);
+   const parts=[new Uint8Array([0,4,77,81,84,84,4,f,o.keepalive>>8,o.keepalive&255]),mqStr(o.clientId)];if(w)parts.push(mqStr(w.topic),mqStr(w.msg));
+   this.raw(mqPkt(0x10,mqCat(...parts)))};
+  ws.onmessage=e=>this.feed(new Uint8Array(e.data));
+  ws.onerror=()=>{};
+  ws.onclose=()=>{clearInterval(this.ping);clearTimeout(tm);if(!ok)rej(new Error('closed'));else if(!this.closing)this.onclose()}})}
+ feed(chunk){this.buf=this.buf.length?mqCat(this.buf,chunk):chunk;
+  while(this.buf.length>=2){let n=1,mul=1,len=0,d;do{if(n>=this.buf.length)return;d=this.buf[n++];len+=(d&127)*mul;mul*=128}while(d&128);
+   if(this.buf.length<n+len)return;const h=this.buf[0],body=this.buf.subarray(n,n+len);this.buf=this.buf.slice(n+len);const type=h>>4;
+   if(type===2){body[1]===0?this._ack&&this._ack():this._nak&&this._nak(body[1])}
+   else if(type===3){const qos=(h>>1)&3,tl=(body[0]<<8)|body[1];const topic=_td.decode(body.subarray(2,2+tl));let p=2+tl;
+    if(qos>0){const a=body[p],b=body[p+1];p+=2;if(qos===1)this.raw(new Uint8Array([0x40,2,a,b]))}
+    try{this.onmsg(topic,_td.decode(body.subarray(p)),!!(h&1))}catch(e){console.error(e)}}}}
+ sub(filter){this.subs.push(filter);this.pid=(this.pid%65535)+1;this.raw(mqPkt(0x82,mqCat(new Uint8Array([this.pid>>8,this.pid&255]),mqStr(filter),new Uint8Array([0]))))}
+ pub(topic,payload,retain){this.raw(mqPkt(0x30|(retain?1:0),mqCat(mqStr(topic),_te.encode(payload))))}
+ raw(b){if(this.ws&&this.ws.readyState===1)this.ws.send(b)}
+ end(){this.closing=true;clearInterval(this.ping);this.raw(new Uint8Array([0xE0,0]));setTimeout(()=>{try{this.ws.close()}catch(e){}},200)}
+}
+async function mqOpen(o,first=0){for(let k=0;k<BROKERS.length;k++){const b=(first+k)%BROKERS.length;try{const mq=await new MQ(BROKERS[b],o).connect();return{mq,b}}catch(e){}}throw new Error('relay')}
 const Net={
  async host(code,h){
-  if(NET_LOCAL){const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!=='host')return;if(m.k==='ping')return ch.postMessage({to:m.from,from:'host',k:'pong'});if(m.k==='hello')h.conn(m.from);if(m.k==='msg')h.data(m.from,m.d);if(m.k==='bye')h.close(m.from)};setTimeout(h.ready,20);return{send:(id,d)=>ch.postMessage({to:id,from:'host',k:'msg',d}),close:()=>{ch.postMessage({to:'*',from:'host',k:'bye'});ch.close()}}}
-  await loadPeer();
-  const peer=new Peer(PFX+code,{debug:0}),conns=new Map();
-  peer.on('open',()=>h.ready());
-  peer.on('error',e=>h.error(e));
-  peer.on('disconnected',()=>{try{peer.reconnect()}catch(e){}});
-  peer.on('connection',c=>{c.on('open',()=>{conns.set(c.peer,c);h.conn(c.peer)});c.on('data',d=>h.data(c.peer,d));c.on('close',()=>{conns.delete(c.peer);h.close(c.peer)});c.on('error',()=>{})});
-  return{send:(id,d)=>{const c=conns.get(id);if(c&&c.open)c.send(d)},close:()=>{try{peer.destroy()}catch(e){}}}
+  if(NET_LOCAL){const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!=='host')return;if(m.k==='ping')return ch.postMessage({to:m.from,from:'host',k:'pong'});if(m.k==='hello')h.conn(m.from);if(m.k==='msg')h.data(m.from,m.d);if(m.k==='bye')h.close(m.from)};setTimeout(h.ready,20);return{b:0,meta:()=>{},send:(id,d)=>ch.postMessage({to:id,from:'host',k:'msg',d}),close:()=>{ch.postMessage({to:'*',from:'host',k:'bye'});ch.close()}}}
+  const inbox=TOP+'t/'+code+'/h',lobby=TOP+'lobby/'+code,known=new Set();let mq,b,meta=null,dead=false;
+  const opts={clientId:'vmh'+rid(14),keepalive:20,will:{topic:TOP+'t/'+code+'/x',msg:'gone',retain:false}};
+  const wire=()=>{mq.onmsg=(topic,pl)=>{if(topic!==inbox)return;let m;try{m=JSON.parse(pl)}catch(e){return}const f=String(m.f||'');if(!/^vm[a-z0-9]{8,20}$/.test(f))return;
+    if(m.k==='ping')return mq.pub(TOP+'t/'+code+'/c/'+f,JSON.stringify({k:'pong'}));
+    if(m.k==='msg'){if(!known.has(f)){known.add(f);h.conn(f)}h.data(f,m.d)}
+    if(m.k==='bye'&&known.has(f)){known.delete(f);h.close(f)}};
+   mq.onclose=async()=>{if(dead)return;for(let i=0;i<6&&!dead;i++){await sleep(1500+i*1000);try{({mq}=await mqOpen(opts,b));wire();mq.sub(inbox);if(meta)mq.pub(lobby,meta,true);return}catch(e){}}if(!dead)h.error({type:'lost'})}};
+  ({mq,b}=await mqOpen(opts));wire();mq.sub(inbox);setTimeout(h.ready,10);
+  return{b,
+   send:(id,d)=>mq.pub(TOP+'t/'+code+'/c/'+id,JSON.stringify({k:'msg',d})),
+   meta:info=>{meta=info?JSON.stringify({...info,code,b,ts:Date.now()}):'';mq.pub(lobby,meta,true)},
+   close:()=>{dead=true;mq.pub(lobby,'',true);mq.pub(TOP+'t/'+code+'/x','gone');mq.end()}}
  },
- async join(code,h){
-  let done=false;const fail=m=>{if(done)return;done=true;h.error(m)};
-  if(NET_LOCAL){const me='c'+Math.random().toString(36).slice(2,9);const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!==me&&m.to!=='*')return;if(m.k==='pong'&&!done){done=true;ch.postMessage({to:'host',from:me,k:'hello'});h.open(me)}if(m.k==='msg')h.data(m.d);if(m.k==='bye')h.close()};ch.postMessage({to:'host',from:me,k:'ping'});setTimeout(()=>{if(!done){ch.close();fail('Table not found. Check the code.')}},2500);return{send:d=>ch.postMessage({to:'host',from:me,k:'msg',d}),close:()=>{ch.postMessage({to:'host',from:me,k:'bye'});ch.close()}}}
-  await loadPeer();
-  const peer=new Peer({debug:0});let conn=null;
-  peer.on('error',e=>{if(!done){fail(e.type==='peer-unavailable'?'Table not found. Check the code or ask the host to reopen it.':'Connection failed ('+e.type+')');try{peer.destroy()}catch(x){}}});
-  peer.on('open',id=>{conn=peer.connect(PFX+code,{reliable:true});conn.on('open',()=>{if(done)return;done=true;h.open(id)});conn.on('data',d=>h.data(d));conn.on('close',()=>h.close())});
-  setTimeout(()=>{if(!done){fail('Could not reach the table. The host may be offline.');try{peer.destroy()}catch(e){}}},15000);
-  return{send:d=>{if(conn&&conn.open)conn.send(d)},close:()=>{try{conn&&conn.close()}catch(e){}try{peer.destroy()}catch(e){}}}
- }
+ async join(code,h,hint=0){
+  if(NET_LOCAL){let done=false;const me='vm'+rid(10);const ch=new BroadcastChannel('vm-'+code);ch.onmessage=e=>{const m=e.data;if(m.to!==me&&m.to!=='*')return;if(m.k==='pong'&&!done){done=true;ch.postMessage({to:'host',from:me,k:'hello'});h.open(me)}if(m.k==='msg')h.data(m.d);if(m.k==='bye')h.close()};ch.postMessage({to:'host',from:me,k:'ping'});setTimeout(()=>{if(!done){ch.close();h.error('Table not found. Check the code.')}},2500);return{send:d=>ch.postMessage({to:'host',from:me,k:'msg',f:me,d}),close:()=>{ch.postMessage({to:'host',from:me,k:'bye'});ch.close()}}}
+  const cid='vm'+rid(14),inbox=TOP+'t/'+code+'/h',mine=TOP+'t/'+code+'/c/'+cid,status=TOP+'t/'+code+'/x';
+  const opts={clientId:cid,keepalive:20,will:{topic:inbox,msg:JSON.stringify({k:'bye',f:cid}),retain:false}};
+  let reached=false,mq=null,b=hint,seen=Date.now(),dead=false,wd=0;
+  for(let k=0;k<BROKERS.length&&!reached;k++){const bi=(hint+k)%BROKERS.length;let c;try{c=await new MQ(BROKERS[bi],opts).connect(5000)}catch(e){continue}
+   const got=await new Promise(res=>{c.onmsg=t=>{if(t===mine)res(true)};c.sub(mine);let n=0;const ping=()=>{if(n++<4)c.pub(inbox,JSON.stringify({k:'ping',f:cid}))};ping();const iv=setInterval(ping,900);setTimeout(()=>{clearInterval(iv);res(false)},4200)});
+   if(got){reached=true;mq=c;b=bi}else c.end()}
+  if(!reached){h.error('Table not found. Check the code, or ask the host to keep the table open.');return null}
+  const wire=()=>{mq.onmsg=(t,pl)=>{seen=Date.now();if(t===status&&pl==='gone'){finish();return h.close()}if(t!==mine)return;let m;try{m=JSON.parse(pl)}catch(e){return}if(m.k==='msg')h.data(m.d)};
+   mq.onclose=async()=>{if(dead)return;for(let i=0;i<6&&!dead;i++){await sleep(1500+i*1000);try{mq=await new MQ(BROKERS[b],opts).connect(5000);wire();mq.sub(mine);mq.sub(status);seen=Date.now();return}catch(e){}}if(!dead){finish();h.close()}}};
+  const finish=()=>{dead=true;clearInterval(wd)};
+  wire();mq.sub(status);
+  wd=setInterval(()=>{if(Date.now()-seen>30000){finish();try{mq.end()}catch(e){}h.close()}},3000);
+  setTimeout(()=>h.open(cid),0);
+  return{b,send:d=>mq.pub(inbox,JSON.stringify({k:'msg',f:cid,d})),close:()=>{finish();mq.pub(inbox,JSON.stringify({k:'bye',f:cid}));mq.end()}}
+ },
+ list(cb){if(NET_LOCAL){cb([]);return()=>{}}
+  const tables=new Map(),conns=[];let stop=false;
+  let settled=false;const emit=()=>{const now=Date.now();cb([...tables.values()].filter(t=>now-t.ts<60000).sort((a,b)=>b.n-a.n||b.ts-a.ts),conns.length,settled)};
+  BROKERS.forEach((url,b)=>{new MQ(url,{clientId:'vml'+rid(14),keepalive:30}).connect(6000).then(mq=>{if(stop)return mq.end();conns.push(mq);
+   mq.onmsg=(t,pl)=>{const code=t.split('/').pop();if(!pl){tables.delete(code);return emit()}try{const m=JSON.parse(pl);if(m&&m.code===code&&m.b===b){tables.set(code,m);emit()}}catch(e){}};mq.sub(TOP+'lobby/+')}).catch(()=>{})});
+  const iv=setInterval(emit,10000);setTimeout(()=>{settled=true;emit()},6500);
+  return()=>{stop=true;clearInterval(iv);conns.forEach(c=>c.end())}}
 };
 const SEATS=5,BET_T=15,TURN_T=25;
 let MP=null,BJMODE='lobby';
@@ -952,7 +1088,7 @@ const genCode=()=>Array.from({length:5},()=>'ABCDEFGHJKMNPQRSTUVWXYZ23456789'[Ma
 function myProfile(){const u=U();return{name:u.display,avatar:u.avatar,color:u.color,frame:u.frame,title:u.title,vip:!!u.luck}}
 function recentTables(){try{return JSON.parse(localStorage.getItem('vm_recent')||'[]')}catch(e){return[]}}
 function saveRecent(code,name,role){const l=recentTables().filter(r=>r.code!==code);l.unshift({code,name,role,t:Date.now()});try{localStorage.setItem('vm_recent',JSON.stringify(l.slice(0,6)))}catch(e){}}
-const inviteLink=code=>location.href.split('#')[0]+'#bj='+code;
+const inviteLink=code=>location.href.split('#')[0].split('?')[0]+'#bj='+code+(MP&&MP.net&&MP.net.b?'-'+MP.net.b:'');
 
 /* host engine */
 function hDraw(){if(MP.shoe.length<52){MP.shoe=newShoe();hostSys('The dealer shuffles a fresh six deck shoe')}return MP.shoe.pop()}
@@ -964,16 +1100,18 @@ function hostSend(id,msg){if(!MP)return;if(id==='host')clientHandle(msg);else MP
 function mpSanitize(S){const v=JSON.parse(JSON.stringify(S));v.dealer=v.dealer.map(c=>c.hidden?{hidden:true,r:'?',s:'♠'}:c);for(const k in v.players)delete v.players[k].vip;return v}
 function mpBroadcast(){if(!MP||MP.role!=='host')return;const v=mpSanitize(MP.S);for(const id in MP.S.players){const p=MP.S.players[id];if(id!=='host'&&p.online!==false)MP.net.send(id,{t:'state',s:v})}mpOnState(v)}
 function mpOnState(v){const prev=MP.V;MP.V=v;if(prev&&v.chat.length&&CUR!=='blackjack'){const last=v.chat[v.chat.length-1];const pl=prev.chat[prev.chat.length-1];if(last&&(!pl||last.t!==pl.t)&&!last.sys&&last.id!==MP.myId)toast(`${esc(last.n)} at your table: ${esc(last.m)}`,'gold')}if(CUR==='blackjack'&&!$('#mpTable'))mpView();else mpRender()}
-async function mpCreate(name,minBet){if(MP)return;const code=genCode();
- MP={role:'host',code,myId:'host',connecting:true,shoe:newShoe(),S:{name:String(name||'Private table').slice(0,28),minBet,phase:'betting',t:BET_T,turn:-1,turnT:0,players:{},seats:[null,null,null,null,null],dealer:[],msg:'Take a seat to start',chat:[],round:0},V:null};
+async function mpCreate(name,minBet,pub){if(MP)return;const code=genCode();
+ MP={role:'host',code,myId:'host',connecting:true,pub:!!pub,metaT:0,shoe:newShoe(),S:{name:String(name||'Private table').slice(0,28),minBet,phase:'betting',t:BET_T,turn:-1,turnT:0,players:{},seats:[null,null,null,null,null],dealer:[],msg:'Take a seat to start',chat:[],round:0},V:null};
  mpView();
- try{MP.net=await Net.host(code,{
-  ready:()=>{if(!MP)return;MP.connecting=false;hostJoin('host',myProfile());hostSys(`Table opened by ${U().display}`);saveRecent(code,MP.S.name,'host');log('game',`Opened blackjack table ${code}`);persist();MP.tick=setInterval(hostTick,1000);mpBroadcast();mpView();toast(`Your table is open. Share code ${code} with your friends.`,'gold')},
+ let net;try{net=await Net.host(code,{
+  ready:()=>{if(!MP)return;MP.connecting=false;hostJoin('host',myProfile());hostSys(`Table opened by ${U().display}`);saveRecent(code,MP.S.name,'host');log('game',`Opened blackjack table ${code}`);persist();MP.tick=setInterval(hostTick,1000);mpBroadcast();mpView();mpMeta();toast(`Your table is open. Share code ${code} with your friends.`,'gold')},
   conn:()=>{},
   data:(id,d)=>hostHandle(id,d),
   close:id=>hostDrop(id),
-  error:e=>{if(!MP)return;if(MP.connecting){const t=e&&e.type;mpCleanup(true);if(t==='unavailable-id')return mpCreate(name,minBet);toast('Could not open the table'+(t?' ('+t+')':'')+'. Check your connection.','err')}else if(e&&e.type==='network')toast('Network trouble. Trying to reconnect.','err')}})}
- catch(e){mpCleanup(true);toast('Could not load the multiplayer service. Check your internet connection.','err')}}
+  error:e=>{if(!MP)return;mpRefundOpen();toast('Lost connection to the relay. Your table closed.','err');mpCleanup()}})}
+ catch(e){if(MP&&MP.code===code){mpCleanup(true);toast('Could not reach the online relay. Check your internet connection and try again.','err')}return}
+ if(!MP||MP.code!==code){try{net.close()}catch(e){}return}MP.net=net}
+function mpMeta(){if(!MP||MP.role!=='host'||!MP.net||!MP.pub)return;const S=MP.S;MP.metaT=Date.now();MP.net.meta({name:S.name,host:S.players.host?S.players.host.name:'Host',n:Object.keys(S.players).length,seated:S.seats.filter(Boolean).length,minBet:S.minBet,phase:S.phase})}
 function hostJoin(id,q){const S=MP.S;q=q||{};S.players[id]={id,name:String(q.name||'Guest').slice(0,18),avatar:esc(String(q.avatar||'🙂').slice(0,4)),color:/^#[0-9a-f]{6}$/i.test(q.color)?q.color:'#2a2f3d',frame:['none','gold','emerald','neon','diamond'].includes(q.frame)?q.frame:'none',title:String(q.title||'').slice(0,20),vip:!!q.vip,seat:-1,bet:0,cards:[],res:'',done:false,online:true}}
 function hostHandle(id,d){if(!MP||MP.role!=='host'||!d)return;const S=MP.S;const p=S.players[id];
  if(d.t==='hello'){if(Object.keys(S.players).length>=12)return hostSend(id,{t:'full'});if(!p){hostJoin(id,d.p);hostSys(`${S.players[id].name} joined the table`)}return mpBroadcast()}
@@ -994,7 +1132,7 @@ function hostDrop(id,quiet){if(!MP||MP.role!=='host')return;const S=MP.S,p=S.pla
  if(inHand){p.online=false;p.done=true;if(S.phase==='playing'&&S.seats[S.turn]===id)hostNext()}
  else{if(p.seat>=0)S.seats[p.seat]=null;delete S.players[id]}
  mpBroadcast()}
-function hostTick(){if(!MP||MP.role!=='host')return;const S=MP.S;
+function hostTick(){if(!MP||MP.role!=='host')return;const S=MP.S;if(MP.pub&&Date.now()-MP.metaT>10000)mpMeta();
  if(S.phase==='betting'){const seated=S.seats.filter(Boolean);if(!seated.length){S.t=BET_T;S.msg='Take a seat to start the next hand'}else{S.t--;const n=seated.filter(id=>S.players[id].bet>0).length;S.msg=n?`${n} of ${seated.length} bets in · dealing in ${Math.max(0,S.t)}s`:`Place your bets · ${Math.max(0,S.t)}s`;if(S.t<=0){if(n)return hostDeal();S.t=BET_T}}mpBroadcast()}
  else if(S.phase==='playing'){S.turnT--;if(S.turnT<=0){const id=S.seats[S.turn];if(id&&S.players[id]){S.players[id].done=true;hostSys(`${S.players[id].name} ran out of time and stands`)}hostNext();return}mpBroadcast()}}
 async function hostDeal(){const S=MP.S;S.phase='dealing';S.round++;S.dealer=[];S.turn=-1;
@@ -1040,36 +1178,49 @@ function applyResult(r){const u=U();quest('bj_hand',1);let ret=r.ret;if(r.res===
 function mpMe(){return MP&&MP.V?MP.V.players[MP.myId]:null}
 function mpRefundOpen(){const me=mpMe();if(me&&me.bet>0&&MP.V.phase!=='settle'&&MP.settled!==MP.V.round){refund(me.bet);toast(`Your open bet of ${fmt(me.bet)} was returned`,'info')}}
 function mpSend(d){if(!MP)return;if(MP.role==='host')hostHandle('host',d);else MP.net&&MP.net.send(d)}
-async function mpJoin(code){code=String(code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(code.length!==5)return toast('Table codes have 5 characters','err');if(MP)return toast('Leave your current table first','err');
+async function mpJoin(code,b){const mm=String(code||'').trim().match(/^([A-Za-z0-9]{5})(?:-(\d))?$/);if(mm){code=mm[1];if(b===undefined&&mm[2])b=+mm[2]}code=String(code||'').toUpperCase().replace(/[^A-Z0-9]/g,'');b=Math.max(0,Math.min(BROKERS.length-1,+b||0));if(code.length!==5)return toast('Table codes have 5 characters','err');if(MP)return toast('Leave your current table first','err');
  MP={role:'client',code,myId:null,connecting:true,V:null};mpView();
- try{MP.net=await Net.join(code,{
-  open:id=>{if(!MP)return;MP.myId=id;MP.connecting=false;MP.net.send({t:'hello',p:myProfile()});saveRecent(code,'','join');log('game',`Joined blackjack table ${code}`);persist()},
+ let net;try{net=await Net.join(code,{
+  open:id=>{if(!MP)return;MP.myId=id;MP.connecting=false;MP.net.send({t:'hello',p:myProfile()});saveRecent(code+(MP.net&&MP.net.b?'-'+MP.net.b:''),MP.joinName||'','join');log('game',`Joined blackjack table ${code}`);persist()},
   data:d=>clientHandle(d),
   close:()=>{if(MP&&!MP.leaving){mpRefundOpen();toast('Lost connection to the table','err');mpCleanup()}},
-  error:m=>{toast(esc(m),'err');mpCleanup()}})}
- catch(e){toast('Could not load the multiplayer service. Check your internet connection.','err');mpCleanup()}}
+  error:m=>{if(MP&&MP.code===code){toast(esc(m),'err');mpCleanup()}}},b)}
+ catch(e){if(MP&&MP.code===code){toast('Could not reach the online relay. Check your internet connection.','err');mpCleanup()}return}
+ if(!net)return;if(!MP||MP.code!==code){try{net.close()}catch(e){}return}MP.net=net}
 function mpLeave(){if(!MP)return;if(MP.role==='host'){modal(`<h2>Close this table?</h2><p class="muted">Everyone at the table is sent back to the lobby. Open bets are returned.</p><div class="row" style="margin-top:18px"><button class="btn btn-red" id="mcGo">Close table</button><button class="btn" data-close>Keep playing</button></div>`);$('#mcGo').onclick=()=>{closeModal();for(const id in MP.S.players)if(id!=='host')MP.net.send(id,{t:'closed'});mpRefundOpen();MP.leaving=true;setTimeout(()=>mpCleanup(),250)};return}
  mpRefundOpen();MP.leaving=true;mpSend({t:'leave'});setTimeout(()=>mpCleanup(),150)}
 function mpCleanup(silent){if(!MP)return;clearInterval(MP.tick);try{MP.net&&MP.net.close()}catch(e){}MP=null;if(!silent&&CUR==='blackjack')VIEWS.blackjack();else if(silent&&CUR==='blackjack')VIEWS.blackjack()}
 addEventListener('beforeunload',()=>{if(MP&&MP.role==='host'&&MP.net)for(const id in MP.S.players)if(id!=='host')MP.net.send(id,{t:'closed'})});
 
 /* views */
-VIEWS.blackjack=()=>{if(MP)return mpView();if(BJMODE==='solo')return bjSoloView();const u=U(),rec=recentTables();
+let LB_STOP=null;
+VIEWS.blackjack=()=>{if(LB_STOP){LB_STOP();LB_STOP=null}if(MP)return mpView();if(BJMODE==='solo')return bjSoloView();const u=U(),rec=recentTables();
  $('#view').innerHTML=`
- <div class="page-head"><div><span class="eyebrow">Live multiplayer</span><h1>Blackjack</h1><p>Open a private table and play in real time with your friends on their own phones and computers.</p></div></div>
+ <div class="page-head"><div><span class="eyebrow">Live multiplayer · Worldwide</span><h1>Blackjack</h1><p>Open a table and play in real time with friends anywhere in the world, on their own phones and computers.</p></div><span class="live-pill"><span class="dot"></span><span id="lbOnline">Connecting to the relay</span></span></div>
  <div class="grid g3">
-  <div class="card stack"><h3>Create a table</h3><div class="field"><label>Table name</label><input id="lbName" maxlength="28" value="${esc(u.display)}'s table"></div><div class="field"><label>Minimum bet</label><select id="lbMin">${[100,500,1000,5000,10000].map(v=>`<option value="${v}" ${v===500?'selected':''}>${fmt(v)}</option>`).join('')}</select></div><button class="btn btn-gold btn-lg btn-block" id="lbCreate">Create table</button><p class="muted" style="font-size:12px">You host the table. Keep this tab open while your friends play.</p></div>
-  <div class="card stack"><h3>Join a table</h3><div class="field"><label>Table code</label><input id="lbCode" maxlength="5" placeholder="ABCDE" autocomplete="off" class="code-field"></div><button class="btn btn-green btn-lg btn-block" id="lbJoin">Join table</button><p class="muted" style="font-size:12px">Ask the host for the 5 character code or open their invite link.</p></div>
-  <div class="card stack"><h3>Practice</h3><p class="muted" style="line-height:1.6;flex:1">Play solo against the dealer with practice players at the table. No friends needed.</p><button class="btn btn-lg btn-block" id="lbSolo">Practice table</button></div>
+  <div class="card stack"><h3>Create a table</h3><div class="field"><label>Table name</label><input id="lbName" maxlength="28" value="${esc(u.display)}'s table"></div><div class="grid g2" style="gap:12px"><div class="field"><label>Minimum bet</label><select id="lbMin">${[100,500,1000,5000,10000].map(v=>`<option value="${v}" ${v===500?'selected':''}>${fmt(v)}</option>`).join('')}</select></div><div class="field"><label>Visibility</label><select id="lbPub"><option value="1">Public</option><option value="0">Private</option></select></div></div><button class="btn btn-gold btn-lg btn-block" id="lbCreate">Create table</button><p class="muted" style="font-size:12px">You host the table. Keep this tab open while your friends play. Public tables show up in the list below.</p></div>
+  <div class="card stack"><h3>Join with a code</h3><div class="field"><label>Table code</label><input id="lbCode" maxlength="7" placeholder="ABCDE" autocomplete="off" class="code-field"></div><button class="btn btn-green btn-lg btn-block" id="lbJoin">Join table</button><p class="muted" style="font-size:12px">Ask the host for the 5 character code or open their invite link. Private tables only work this way.</p></div>
+  <div class="card stack solo-card"><h3>Solo table</h3><p class="muted" style="line-height:1.6;flex:1">Play on your own against the dealer, with house players filling the other seats. No friends needed.</p><button class="btn btn-lg btn-block" id="lbSolo">Play solo</button></div>
  </div>
+ <div class="row" style="justify-content:space-between;margin:30px 0 16px"><h2 class="sec" style="margin:0">Open tables</h2><button class="btn btn-sm" id="lbRefresh">Refresh</button></div>
+ <div id="lbTables" class="ot-grid"><div class="card ot-empty"><div class="spinner"></div><p class="muted">Looking for open tables around the world</p></div></div>
  <h2 class="sec">How it works</h2>
- <div class="steps"><div class="step"><b>1</b><p>Create a table and pick the minimum bet.</p></div><div class="step"><b>2</b><p>Send your friends the code or the invite link.</p></div><div class="step"><b>3</b><p>They open the site, sign in and join. Five seats, and more people can watch.</p></div><div class="step"><b>4</b><p>Everyone bets with their own balance against the dealer. Chat lives at the table.</p></div></div>
- ${rec.length?`<h2 class="sec">Recent tables</h2><div class="card">${rec.map(r=>`<div class="kv"><span><b style="letter-spacing:.2em">${esc(r.code)}</b> <span class="muted">· ${esc(r.name||'Table')} · ${r.role==='host'?'Hosted':'Joined'} ${ago(r.t)}</span></span>${r.role==='host'?'':`<button class="btn btn-sm" data-rj="${esc(r.code)}">Rejoin</button>`}</div>`).join('')}</div>`:''}`;
- $('#lbCreate').onclick=()=>mpCreate($('#lbName').value.trim()||u.display+"'s table",+$('#lbMin').value);
- $('#lbJoin').onclick=()=>mpJoin($('#lbCode').value);
- $('#lbCode').onkeydown=e=>{if(e.key==='Enter')mpJoin(e.target.value)};
- $('#lbSolo').onclick=()=>{BJMODE='solo';VIEWS.blackjack()};
- $$('[data-rj]').forEach(b=>b.onclick=()=>mpJoin(b.dataset.rj))};
+ <div class="steps"><div class="step"><b>1</b><p>Create a table, pick the minimum bet, and choose public or private.</p></div><div class="step"><b>2</b><p>Send your friends the code or the invite link. Any country, any network.</p></div><div class="step"><b>3</b><p>They open the site, sign in and join. Five seats, and more people can watch.</p></div><div class="step"><b>4</b><p>Everyone bets with their own balance against the dealer. Chat lives at the table.</p></div></div>
+ ${rec.length?`<h2 class="sec">Recent tables</h2><div class="card">${rec.map(r=>`<div class="kv"><span><b style="letter-spacing:.2em">${esc(r.code.split('-')[0])}</b> <span class="muted">· ${esc(r.name||'Table')} · ${r.role==='host'?'Hosted':'Joined'} ${ago(r.t)}</span></span>${r.role==='host'?'':`<button class="btn btn-sm" data-rj="${esc(r.code)}">Rejoin</button>`}</div>`).join('')}</div>`:''}`;
+ $('#lbCreate').onclick=()=>{if(LB_STOP){LB_STOP();LB_STOP=null}mpCreate($('#lbName').value.trim()||u.display+"'s table",+$('#lbMin').value,$('#lbPub').value==='1')};
+ const join=(c,b)=>{if(LB_STOP){LB_STOP();LB_STOP=null}mpJoin(c,b)};
+ $('#lbJoin').onclick=()=>join($('#lbCode').value);
+ $('#lbCode').onkeydown=e=>{if(e.key==='Enter')join(e.target.value)};
+ $('#lbSolo').onclick=()=>{if(LB_STOP){LB_STOP();LB_STOP=null}BJMODE='solo';VIEWS.blackjack()};
+ $$('[data-rj]').forEach(b=>b.onclick=()=>join(b.dataset.rj));
+ $('#lbTables').onclick=e=>{const b=e.target.closest('[data-ot]');if(b)join(b.dataset.ot,+b.dataset.b)};
+ const watch=()=>{if(LB_STOP)LB_STOP();let first=true;LB_STOP=Net.list((list,up,settled)=>{const box=$('#lbTables');if(!box){if(LB_STOP){LB_STOP();LB_STOP=null}return}
+  const on=$('#lbOnline');if(on)on.textContent=list.length?`${list.length} open table${list.length>1?'s':''} worldwide`:up?'Relay online':settled?'Relay offline':'Connecting to the relay';
+  if(!list.length&&!up&&!settled)return;
+  if(!list.length&&!up){box.innerHTML=`<div class="card ot-empty"><p><b>Could not reach the online relay</b></p><p class="muted">Check your internet connection, then press Refresh. Joining with a code still tries every relay.</p></div>`;return}
+  if(!list.length){box.innerHTML=`<div class="card ot-empty"><p><b>No public tables right now</b></p><p class="muted">Create one and it shows up here for players everywhere.</p></div>`;return}
+  box.innerHTML=list.map(t=>`<div class="card ot"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><div style="min-width:0"><h4>${esc(String(t.name||'Table').slice(0,28))}</h4><small class="muted">Hosted by ${esc(String(t.host||'Host').slice(0,18))}</small></div><span class="tag ${t.phase==='betting'?'green':'gold'}">${t.phase==='betting'?'Betting':'In play'}</span></div><div class="ot-meta"><span><b>${Math.min(5,+t.seated||0)}</b>/5 seated</span><span><b>${+t.n||1}</b> at table</span><span>Min <b>${fmt(+t.minBet||0)}</b></span></div><div class="ot-seats">${[0,1,2,3,4].map(i=>`<i class="${i<(+t.seated||0)?'on':''}"></i>`).join('')}</div><button class="btn btn-gold btn-block" data-ot="${esc(t.code)}" data-b="${+t.b||0}">Join table</button></div>`).join('')})};
+ watch();$('#lbRefresh').onclick=watch};
 function mpView(){if(CUR!=='blackjack')return;
  if(!MP||MP.connecting||!MP.V){$('#view').innerHTML=`<div class="card" style="max-width:520px;margin:60px auto;text-align:center;padding:40px"><div class="spinner"></div><h2 style="font-family:'Playfair Display',serif;font-size:26px">${MP&&MP.role==='host'?'Opening your table':'Joining table '+esc(MP?MP.code:'')}</h2><p class="muted" style="margin:8px 0 20px">Connecting to the Velmont network.</p><button class="btn" id="mpCancel">Cancel</button></div>`;$('#mpCancel').onclick=()=>{if(MP)MP.leaving=true;mpCleanup()};return}
  $('#view').innerHTML=`
@@ -1461,11 +1612,16 @@ const VIP_KEY=atob('VkVMVkVUQUNF');
 VIEWS.codes=()=>{const u=U();$('#view').innerHTML=`
  <div class="page-head"><div><span class="eyebrow">Promotions</span><h1>Codes</h1><p>Redeem promo codes from our newsletter, partners and Grand Prix weekends. Each code works once per account.</p></div></div>
  <div class="code-hero"><div style="font-size:44px">🎁</div><h2 style="font-family:'Playfair Display';font-size:30px;margin-top:10px">Have a code?</h2><p class="muted" style="margin-top:6px">Enter it below to claim your reward.</p><form class="code-in" id="cdF"><input id="cdI" maxlength="20" placeholder="ENTER CODE" autocomplete="off"><button class="btn btn-gold">Redeem</button></form></div>
- <h2 class="sec">Redeemed</h2><div class="card">${u.codes.length?u.codes.map(c=>`<div class="kv"><span><b style="letter-spacing:.12em">${esc(c.code)}</b><br><small class="muted">${esc(c.msg)} · ${stamp(c.t)}</small></span>${c.amt?`<b class="green">+${fmt(c.amt)}</b>`:'<span class="tag gold">Perk active</span>'}</div>`).join(''):'<p class="empty">No codes redeemed yet. New members start with WELCOME.</p>'}</div>`;
+ <h2 class="sec">Available codes</h2>
+ <div class="pc-grid">${Object.entries(CODES).map(([k,c])=>{const done=u.codes.some(x=>x.code===k),lock=c.lvl&&lvlOf(u.xp)<c.lvl;return`<div class="promo ${done?'done':''}"><div class="promo-top"><span class="promo-amt">+${fmt(c.amt)}</span>${done?'<span class="tag green">Claimed</span>':lock?`<span class="tag red">Level ${c.lvl}</span>`:'<span class="tag gold">Available</span>'}</div><div class="promo-code"><span>${k}</span><button class="copy" data-copy="${k}" title="Copy code">${ic('copy')}</button></div><p>${esc(c.msg)}${c.lvl?` · needs level ${c.lvl}`:''}</p><button class="btn ${done||lock?'':'btn-gold'} btn-block" data-redeem="${k}" ${done||lock?'disabled':''}>${done?'Already redeemed':lock?'Reach level '+c.lvl+' to unlock':'Redeem now'}</button></div>`}).join('')}</div>
+ <p class="muted" style="font-size:12px;margin-top:12px">New codes drop on Grand Prix weekends and in the Velmont newsletter. Each code works once per account.</p>
+ <h2 class="sec">Redeemed</h2><div class="card">${u.codes.length?u.codes.map(c=>`<div class="kv"><span><b style="letter-spacing:.12em">${c.amt?esc(c.code):'Private perk'}</b><br><small class="muted">${esc(c.msg)} · ${stamp(c.t)}</small></span>${c.amt?`<b class="green">+${fmt(c.amt)}</b>`:'<span class="tag gold">Perk active</span>'}</div>`).join(''):'<p class="empty">No codes redeemed yet. New members start with WELCOME.</p>'}</div>`;
  $('#cdF').onsubmit=e=>{e.preventDefault();const k=$('#cdI').value.trim().toUpperCase().replace(/\s+/g,'');if(!k)return;if(u.codes.some(c=>c.code===k))return toast('You already redeemed this code','err');
-  if(k===VIP_KEY){u.luck=true;u.codes.unshift({code:k,msg:'VIP perk: priority table seating',amt:0,t:Date.now()});log('reward','Redeemed code '+k);inbox('VIP perk unlocked','Priority table seating is now active on your account. Enjoy the live tables.');save();toast('VIP perk unlocked: priority table seating','gold');return VIEWS.codes()}
+  if(k===VIP_KEY){u.luck=true;u.codes.unshift({code:k,msg:'VIP perk: priority table seating',amt:0,t:Date.now()});log('reward','Unlocked a VIP perk');inbox('VIP perk unlocked','Priority table seating is now active on your account. Enjoy the live tables.');save();toast('VIP perk unlocked: priority table seating','gold');return VIEWS.codes()}
   const c=CODES[k];if(!c)return toast('This code is invalid or expired','err');if(c.lvl&&lvlOf(u.xp)<c.lvl)return toast(`This code needs level ${c.lvl}`,'err');
-  u.balance+=c.amt;u.codes.unshift({code:k,msg:c.msg,amt:c.amt,t:Date.now()});log('reward','Redeemed code '+k,c.amt);save();flashBal('up');toast(`${c.msg}: ${fmt(c.amt)} added`,'gold');VIEWS.codes()}};
+  u.balance+=c.amt;u.codes.unshift({code:k,msg:c.msg,amt:c.amt,t:Date.now()});log('reward','Redeemed code '+k,c.amt);save();flashBal('up');toast(`${c.msg}: ${fmt(c.amt)} added`,'gold');VIEWS.codes()}
+ $$('[data-redeem]').forEach(b=>b.onclick=()=>{$('#cdI').value=b.dataset.redeem;$('#cdF').requestSubmit()});
+ $$('[data-copy]').forEach(b=>b.onclick=()=>{const k=b.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(k):Promise.reject()).then(()=>toast(`Code ${k} copied`,'info')).catch(()=>{$('#cdI').value=k;$('#cdI').focus()})})};
 
 /* ========== MESSAGES ========== */
 let CHAT=[];try{CHAT=JSON.parse(localStorage.getItem('vm_chat')||'[]')}catch(e){}
