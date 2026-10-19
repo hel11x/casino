@@ -1118,6 +1118,7 @@ function hostHandle(id,d){if(!MP||MP.role!=='host'||!d)return;const S=MP.S;const
  if(!p)return;
  switch(d.t){
   case'sit':{const s=+d.seat;if(p.seat>=0||!(s>=0&&s<SEATS)||S.seats[s])return;S.seats[s]=id;p.seat=s;hostSys(`${p.name} sat down at seat ${s+1}`);break}
+  case'unbet':{if(S.phase!=='betting'||!p.bet)return;const a=p.bet;p.bet=0;hostSend(id,{t:'refund',amt:a,reason:'you removed your bet'});break}
   case'standup':{if(p.seat<0||p.bet)return;S.seats[p.seat]=null;p.seat=-1;p.cards=[];p.res='';break}
   case'bet':{const a=Math.floor(+d.amt)||0;if(S.phase!=='betting'||p.seat<0||p.bet||a<S.minBet||a>1e9){if(a>0)hostSend(id,{t:'refund',amt:a,reason:'the bet was not accepted'});return}p.bet=a;p.cards=[];p.res='';const seated=S.seats.filter(Boolean).map(x=>S.players[x]);if(seated.every(x=>x.bet>0))S.t=Math.min(S.t,3);break}
   case'dealnow':{if(id==='host'&&S.phase==='betting'&&S.seats.some(x=>x&&S.players[x].bet>0))S.t=Math.min(S.t,1);break}
@@ -1237,10 +1238,11 @@ function mpView(){if(CUR!=='blackjack')return;
  $('#mpChatF').onsubmit=e=>{e.preventDefault();const v=$('#mpChatI').value.trim();if(!v)return;mpSend({t:'chat',m:v});$('#mpChatI').value=''};
  MP.ctlSig=null;MP.chatN=null;mpRender()}
 function mpControl(a){const V=MP&&MP.V,me=mpMe();if(!V||!me)return;
- if(a==='bet'){if(V.phase!=='betting'||me.seat<0||me.bet)return;const amt=Math.floor(+$('#mpBet').value);if(amt<V.minBet)return toast('The minimum bet here is '+fmt(V.minBet),'err');if(!takeBet(amt,'blackjack'))return;mpSend({t:'bet',amt});return}
+ if(a==='bet'){if(V.phase!=='betting'||me.seat<0||me.bet)return;const amt=Math.floor(+$('#mpBet').value);MP.lastBet=amt;if(amt<V.minBet)return toast('The minimum bet here is '+fmt(V.minBet),'err');if(!takeBet(amt,'blackjack'))return;mpSend({t:'bet',amt});return}
  if(a==='double'){if(!takeBet(me.bet,'blackjack',false))return;mpSend({t:'act',a:'double',amt:me.bet});return}
  if(a==='hit'||a==='stand')return mpSend({t:'act',a});
  if(a==='standup')return mpSend({t:'standup'});
+ if(a==='unbet')return mpSend({t:'unbet'});
  if(a==='deal')return mpSend({t:'dealnow'})}
 function mpSeatHTML(id,i,V,me){const[l,t]=SEAT_POS[i];const p=id?V.players[id]:null;
  if(!p)return`<div class="seat empty" style="left:${l}%;top:${t-50}px">${me&&me.seat<0?`<button class="sit-btn" data-sit="${i}">Sit here</button>`:'<div class="open">Open seat</div>'}</div>`;
@@ -1258,12 +1260,12 @@ function mpRender(){const V=MP&&MP.V;if(!V||!$('#mpTable'))return;fitTables();co
  if(sig!==MP.ctlSig){MP.ctlSig=sig;let h='';
   if(!me||me.seat<0)h=`<p class="muted">You are watching. Pick an open seat on the table to play the next hand.</p>`;
   else if(myTurn)h=`<div class="row"><button class="btn btn-green btn-lg" data-a="hit" style="flex:1">Hit</button><button class="btn btn-red btn-lg" data-a="stand" style="flex:1">Stand</button><button class="btn btn-lg" data-a="double" style="flex:1" ${me.cards.length!==2||U().balance<me.bet?'disabled':''}>Double</button></div>`;
-  else if(V.phase==='betting'&&!me.bet)h=`<div class="row" style="align-items:flex-end"><div style="flex:1;min-width:220px">${betBox('mpBet',Math.max(V.minBet,1000))}</div><button class="btn btn-gold btn-lg" data-a="bet">Place bet</button><button class="btn btn-lg" data-a="standup">Stand up</button></div>`;
-  else if(V.phase==='betting')h=`<div class="row"><p style="flex:1">Your bet of <b class="gold-t">${fmt(me.bet)}</b> is in. Waiting for the deal.</p></div>`;
+  else if(V.phase==='betting'&&!me.bet)h=`<div class="row" style="align-items:flex-end"><div style="flex:1;min-width:220px">${betBox('mpBet',MP.lastBet||Math.max(V.minBet,1000))}</div><button class="btn btn-gold btn-lg" data-a="bet">Place bet</button><button class="btn btn-lg" data-a="standup">Stand up</button></div>`;
+  else if(V.phase==='betting')h=`<div class="row"><p style="flex:1">Your bet of <b class="gold-t">${fmt(me.bet)}</b> is in. Waiting for the deal.</p><button class="btn" data-a="unbet">Remove bet</button></div>`;
   else if(me.bet&&me.cards.length)h=`<p class="muted">Waiting for the other players and the dealer.</p>`;
   else h=`<p class="muted">You sit this hand out. Bet when the next round opens.</p>`;
   if(MP.role==='host'&&V.phase==='betting'&&anyBet)h+=`<div class="row" style="margin-top:12px"><button class="btn btn-sm" data-a="deal">Deal now</button><span class="muted" style="font-size:12px">Host control. Starts the hand without waiting for the timer.</span></div>`;
-  $('#mpCtl').innerHTML=h}
+  const old=$('#mpBet'),typed=old&&old.value,foc=old&&document.activeElement===old;$('#mpCtl').innerHTML=h;const nb=$('#mpBet');if(nb&&old){nb.value=typed;if(foc)nb.focus()}}
  $('#mpPlayers').innerHTML=Object.values(V.players).sort((a,b)=>(a.seat<0)-(b.seat<0)||a.seat-b.seat).map(p=>`<div class="pl-row">${avHTML(p,'sm')}<div><b>${esc(p.name)}${p.id===MP.myId?' (you)':''}</b><small>${p.id==='host'?'Host · ':''}${p.seat>=0?'Seat '+(p.seat+1):'Watching'}${p.title?' · '+esc(p.title):''}</small></div>${MP.role==='host'&&p.id!=='host'?`<button class="btn btn-sm" data-kick="${esc(p.id)}">Remove</button>`:''}</div>`).join('');
  const ch=$('#mpChat');const lastT=V.chat.length?V.chat[V.chat.length-1].t+':'+V.chat.length:'0';
  if(MP.chatN!==lastT){MP.chatN=lastT;ch.innerHTML=V.chat.map(c=>c.sys?`<div class="sysmsg">${esc(c.m)}</div>`:`<div class="cm ${c.id===MP.myId?'self':''}"><div class="bub"><b>${esc(c.n)}<small>${ago(c.t)}</small></b>${esc(c.m)}</div></div>`).join('')||'<p class="empty">Say hi to the table</p>';ch.scrollTop=ch.scrollHeight}}
